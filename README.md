@@ -1,4 +1,4 @@
-# jt89
+# JT89
 sn76489an compatible Verilog core, with emphasis on FPGA implementation and Megadrive/Master System compatibility.
 
 This project aims to make a Verilog core that will:
