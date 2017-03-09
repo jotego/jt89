@@ -30,7 +30,8 @@ module jt89_tone(
 	input	rst,
 	input [9:0] tone,
 	input [3:0] vol,
-	output signed reg [9:0] snd;
+	output reg signed [9:0] snd,
+	output reg out
 );
 
 reg	[8:0] max;
@@ -56,24 +57,23 @@ always @(*)
 	endcase
 
 reg [9:0] cnt;
-reg			v;
 
 always @(posedge clk) begin
 	if( rst )
 		snd <= 10'd0;
 	else
-		snd <= v ? {1'b0, max } : ( (~max)+1'b1 );
+		snd <= out ? {1'b0, max } : ( (~max)+1'b1 );
 end
 
 always @(posedge clk)
 	if( rst ) begin
 		cnt <= 10'd0;
-		v <= 1'b0;
+		out <= 1'b0;
 	end
 	else if( clken ) begin
 		if( !cnt ) begin
 			cnt <= tone;
-			v <= ~v;
+			out <= ~out;
 		end
 		else cnt <= cnt-1'b1;
 	end

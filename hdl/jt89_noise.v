@@ -27,16 +27,15 @@ module jt89_noise(
 	input	clken,
 	input	rst,
 	input	clr,
-	input [9:0] tone,	
 	input [2:0] ctrl3,
 	input [3:0] vol,
 	input		ch2,
-	output signed reg [9:0] snd;
+	output reg signed [9:0] snd
 );
 
 reg [15:0] shift;
 reg [9:0] cnt;
-reg			v;
+reg			update;
 
 reg	[8:0] max;
 
@@ -68,31 +67,44 @@ always @(posedge clk) begin
 		snd <= shift[0] ? {1'b0, max } : ( (~max)+1'b1 );
 end
 
+reg last_ch2;
+
 always @(posedge clk)
 	if( rst ) begin
 		cnt <= 10'd0;
-		v <= 1'b0;
+		update <= 1'b0;
+		last_ch2 <= 1'b0;
 	end
-	else if( clken ) begin
-		if( ctrl3==2'b11 )
-			v <= ch2;
+	else begin
+	last_ch2 <= ch2;	
+	if( ctrl3[1:0]==2'b11 ) begin
+		update <= ch2 && !last_ch2;
+	end
+	else begin
+		if( !cnt ) begin
+			update <= 1'b1;
+			case( ctrl3[1:0] )
+				2'd0: cnt <= 10'h010;
+				2'd1: cnt <= 10'h020;
+				2'd2: cnt <= 10'h040;
+			endcase
+		end
 		else begin
-			if( !cnt ) begin
-				v <= ~v;
-				case( ctrl3[1:0] )
-					2'd0: cnt <= 10'h010;
-					2'd1: cnt <= 10'h020;
-					2'd2: cnt <= 10'h040;
-				endcase
-			end
-			else cnt <= cnt - 1'b1;
+			if( clken ) cnt <= cnt - 1'b1;
+			update <= 1'b0;
 		end
 	end
+end
+
+wire fb = ctrl3[2]?(shift[0]^shift[3]):shift[0];
 	
 always @(posedge clk)
 	if( rst || clr )
-		shift = { 1'b1, 14'd0 };
-	else if( clken && !v) begin
-		shift <= { ctrl3[2]?(shift[0]^shift[3]):shift[0], shift[15:1]};
+		shift <= { 1'b1, 15'd0 };
+	else if( update) begin
+		if( |shift == 1'b0 )
+			shift <= { 1'b1, 15'd0 };
+		else
+			shift <= { fb, shift[15:1]};
 	end
 endmodule

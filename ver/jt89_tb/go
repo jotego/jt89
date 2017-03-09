@@ -1,0 +1,4 @@
+#!/bin/bash
+TOP=jt89_tb
+
+iverilog -f gather.f -s $TOP -o sim -I../../hdl && sim -lxt 

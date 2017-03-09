@@ -18,7 +18,15 @@
 	Date: March, 8th 2017
 	
 	This work was originally based in the implementation found on the
-	SMS core of MiST
+	SMS core of MiST. Some of the changes, all according to data sheet:
+	
+		-Fixed volume
+		-Fixed tone 2 rate option of noise generator
+		-Fixed rate of noise generator
+		-Fixed noise shift clear
+		-Fixed noise generator update bug by which it gets updated
+			multiple times if v='0'
+		-Added all 0's prevention circuit to noise generator
 	
 	*/
 
@@ -42,14 +50,14 @@ reg [3:0] vol0, vol1, vol2, vol3;
 reg [2:0] ctrl3;
 reg [2:0] regn;
 
-reg	[4:0] clk_div;
-wire clken_32 = clk_div[4];
+reg	[3:0] clk_div;
+wire clken_32 = !clk_div;
 
 always @(posedge clk )
 	if( rst ) 
-		clk_div <= 5'd0;
+		clk_div <= 4'd0;
 	else 
-		if( clken ) clken_32 <= clken_32 + 1'b1;
+		if( clken ) clk_div <= clk_div + 1'b1;
 
 reg clr_noise;
 
@@ -59,7 +67,8 @@ always @(posedge clk)
 		{ tone0, tone1, tone2 } <= 30'd0;
 		ctrl3 <= 3'b100;
 	end
-	else begin
+	else 
+	if( !wr_n ) begin
 		clr_noise <= din[7:4] == 4'b1110; // clear noise
 			// when there is an access to the control register
 		if( din[7] ) begin
@@ -86,6 +95,7 @@ always @(posedge clk)
 			endcase
 		end
 	end
+	else clr_noise <= 1'b0;
 
 
 jt89_tone u_tone0(
@@ -106,13 +116,16 @@ jt89_tone u_tone1(
 	.snd	( ch1		)
 );
 
+wire out2;
+
 jt89_tone u_tone2(
 	.clk	( clk		),
 	.rst	( rst		),
 	.clken	( clken_32 	),
 	.vol	( vol2		),
 	.tone	( tone2		),
-	.snd	( ch2		)
+	.snd	( ch2		),
+	.out	( out2		)
 );
 
 jt89_noise u_noise(
@@ -122,7 +135,7 @@ jt89_noise u_noise(
 	.clr	( clr_noise	),
 	.vol	( vol3		),
 	.ctrl3	( ctrl3		),
-	.tone	( tone2		),
+	.ch2	( out2		),
 	.snd	( noise		)
 );
 
