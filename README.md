@@ -11,3 +11,4 @@ This project aims to make a Verilog core that will:
 * Reported variations on noise signal length
 * Use one single clock for all registers, making it easy to synthesize and constraint on FPGAs
 * It will fit well with JT12 (https://github.com/jotego/jt12) in order to produce the Megadrive sound system
+* Have separate output channels, so they can be mixed using the interpolator before the sigma-delta DAC
