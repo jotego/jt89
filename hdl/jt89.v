@@ -41,8 +41,11 @@ module jt89(
 	output	signed [9:0] ch0,
 	output	signed [9:0] ch1,
 	output	signed [9:0] ch2,
-	output	signed [9:0] noise
+	output	signed [9:0] noise,
+	output signed [11:0] sound
 );
+
+assign sound = ch0+ch1+ch2+noise;
 
 // configuration registers
 reg [9:0] tone0, tone1, tone2;
