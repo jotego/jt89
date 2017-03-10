@@ -29,6 +29,16 @@ initial begin
 	#900000 $finish;
 end
 
+wire signed [11:0] sound;
+wire signed [11:0] sound_att = sound >>> 3;
+wire signed [11:0] sound_amp = sound <<< 3;
+
+wire overflow = ^sound[10:8];
+wire overflow2 = overflow ^ sound[11];
+wire overflow3 = ^sound[11:8];
+
+wire signed [11:0] sound_ov = overflow2 ? { sound[11], {11{~sound[11]}}} : sound_amp;
+
 jt89 u_uut(
 	.clk	( clk	),
 	.clken	( 1'b1	),
@@ -38,7 +48,8 @@ jt89 u_uut(
 	.ch0	( ch0	),
 	.ch1	( ch1	),
 	.ch2	( ch2	),
-	.noise	( noise	)
+	.noise	( noise	),
+	.sound	( sound	)
 );
 
 
