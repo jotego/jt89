@@ -1,4 +1,8 @@
 #!/bin/bash
 TOP=jt89_tb
 
+if ! g++ inputs.cc -o inputs; then
+	exit 1
+fi
+inputs > inputs.vh
 iverilog -f gather.f -s $TOP -o sim -I../../hdl && sim -lxt 
