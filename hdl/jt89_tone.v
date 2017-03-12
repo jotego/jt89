@@ -26,7 +26,7 @@
 
 module jt89_tone(
 	input	clk,
-	input	clken,
+(* direct_enable *)	input	clken,
 	input	rst,
 	input [9:0] tone,
 	input [3:0] vol,

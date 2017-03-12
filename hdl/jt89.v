@@ -34,7 +34,7 @@
 
 module jt89(
 	input	clk,
-	input	clken,
+(* direct_enable *)	input	clken,
 	input	rst,
 	input	wr_n,
 	input	[7:0] din,
