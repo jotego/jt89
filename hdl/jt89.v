@@ -34,7 +34,7 @@
 
 module jt89(
 	input	clk,
-(* direct_enable = 1 *)	input	clken,
+(* direct_enable = 1 *)	input	clk_en,
 	input	rst,
 	input	wr_n,
 	input	[7:0] din,
@@ -54,17 +54,27 @@ reg [2:0] ctrl3;
 reg [2:0] regn;
 
 reg	[3:0] clk_div;
-wire clken_32 = !clk_div;
+reg clk_en_32, clk_en_32_aux;
 
 always @(posedge clk )
+	if( rst ) begin
+		clk_en_32 <= 1'b1;
+		clk_en_32_aux <= 1'b1;
+	end	else begin
+		clk_en_32_aux <= &clk_div;
+		clk_en_32 <= !clk_en_32_aux && (&clk_div);
+	end
+
+always @(posedge clk ) if( clk_en ) begin
 	if( rst ) 
 		clk_div <= 4'd0;
 	else 
-		if( clken ) clk_div <= clk_div + 1'b1;
+		clk_div <= clk_div + 1'b1;
+end
 
 reg clr_noise;
 
-always @(posedge clk)
+always @(posedge clk) if( clk_en ) begin
 	if( rst ) begin
 		{ vol0, vol1, vol2, vol3 } <= {16{1'b1}};
 		{ tone0, tone1, tone2 } <= 30'd0;
@@ -99,12 +109,19 @@ always @(posedge clk)
 		end
 	end
 	else clr_noise <= 1'b0;
+end
 
+reg rst_int;
+
+always @(posedge clk or posedge rst) 
+	if( rst )
+		rst_int <= 1'b1;
+	else if(clk_en_32 ) rst_int <= 1'b0;
 
 jt89_tone u_tone0(
 	.clk	( clk		),
-	.rst	( rst		),
-	.clken	( clken_32 	),
+	.rst	( rst_int	),
+	.clk_en	( clk_en_32	),
 	.vol	( vol0		),
 	.tone	( tone0		),
 	.snd	( ch0		)
@@ -112,8 +129,8 @@ jt89_tone u_tone0(
 
 jt89_tone u_tone1(
 	.clk	( clk		),
-	.rst	( rst		),	
-	.clken	( clken_32 	),
+	.rst	( rst_int	),	
+	.clk_en	( clk_en_32	),
 	.vol	( vol1		),
 	.tone	( tone1		),
 	.snd	( ch1		)
@@ -123,8 +140,8 @@ wire out2;
 
 jt89_tone u_tone2(
 	.clk	( clk		),
-	.rst	( rst		),
-	.clken	( clken_32 	),
+	.rst	( rst_int	),
+	.clk_en	( clk_en_32	),
 	.vol	( vol2		),
 	.tone	( tone2		),
 	.snd	( ch2		),
@@ -133,8 +150,8 @@ jt89_tone u_tone2(
 
 jt89_noise u_noise(
 	.clk	( clk		),
-	.rst	( rst		),
-	.clken	( clken_32 	),
+	.rst	( rst_int	),
+	.clk_en	( clk_en_32	),
 	.clr	( clr_noise	),
 	.vol	( vol3		),
 	.ctrl3	( ctrl3		),

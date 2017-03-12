@@ -26,7 +26,7 @@
 
 module jt89_tone(
 	input	clk,
-(* direct_enable = 1 *)	input	clken,
+(* direct_enable = 1 *)	input	clk_en,
 	input	rst,
 	input [9:0] tone,
 	input [3:0] vol,
@@ -58,23 +58,25 @@ always @(*)
 
 reg [9:0] cnt;
 
-always @(posedge clk) begin
+always @(posedge clk) if( clk_en ) begin
 	if( rst )
 		snd <= 10'd0;
 	else
 		snd <= out ? {1'b0, max } : ( (~max)+1'b1 );
 end
 
-always @(posedge clk)
+always @(posedge clk) if( clk_en ) begin
 	if( rst ) begin
 		cnt <= 10'd0;
 		out <= 1'b0;
 	end
-	else if( clken ) begin
+	else begin
 		if( !cnt ) begin
 			cnt <= tone;
 			out <= ~out;
 		end
 		else cnt <= cnt-1'b1;
 	end
+end
+
 endmodule

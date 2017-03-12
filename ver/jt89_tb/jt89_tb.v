@@ -39,10 +39,29 @@ wire overflow3 = ^sound[11:8];
 
 wire signed [11:0] sound_ov = overflow2 ? { sound[11], {11{~sound[11]}}} : sound_amp;
 
+reg [1:0] cnt2;
+reg clk_en;
+
+always @(posedge clk)
+	if( rst ) begin
+		cnt2 <= 2'b0;
+		clk_en <= 1'b0;
+	end
+	else begin
+		cnt2 <= cnt2 +1'b1;		
+		clk_en <= cnt2==2'b11;
+	end
+
+reg rst2;
+
+always @(posedge clk)
+	if( rst ) rst2<=1'b1;
+	else if(clk_en ) rst2<=1'b0;
+
 jt89 u_uut(
 	.clk	( clk	),
-	.clken	( 1'b1	),
-	.rst	( rst	),
+	.clk_en	( 1'b1  ),
+	.rst	( rst2	),
 	.wr_n	( wr_n	),
 	.din	( din	),
 	.ch0	( ch0	),

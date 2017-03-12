@@ -24,7 +24,7 @@
 	
 module jt89_noise(
 	input	clk,
-(* direct_enable = 1 *)	input	clken,
+(* direct_enable = 1 *)	input	clk_en,
 	input	rst,
 	input	clr,
 	input [2:0] ctrl3,
@@ -60,7 +60,7 @@ always @(*)
 	endcase
 
 
-always @(posedge clk) begin
+always @(posedge clk) if( clk_en ) begin
 	if( rst )
 		snd <= 10'd0;
 	else
@@ -69,7 +69,7 @@ end
 
 reg last_ch2;
 
-always @(posedge clk)
+always @(posedge clk) if( clk_en ) begin
 	if( rst ) begin
 		cnt <= 10'd0;
 		update <= 1'b0;
@@ -90,15 +90,16 @@ always @(posedge clk)
 			endcase
 		end
 		else begin
-			if( clken ) cnt <= cnt - 1'b1;
+			cnt <= cnt - 1'b1;
 			update <= 1'b0;
 		end
+	end
 	end
 end
 
 wire fb = ctrl3[2]?(shift[0]^shift[3]):shift[0];
 	
-always @(posedge clk)
+always @(posedge clk) if( clk_en ) begin
 	if( rst || clr )
 		shift <= { 1'b1, 15'd0 };
 	else if( update) begin
@@ -107,4 +108,6 @@ always @(posedge clk)
 		else
 			shift <= { fb, shift[15:1]};
 	end
+end
+
 endmodule
