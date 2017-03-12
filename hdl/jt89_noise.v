@@ -24,7 +24,7 @@
 	
 module jt89_noise(
 	input	clk,
-(* direct_enable *)	input	clken,
+(* direct_enable = 1 *)	input	clken,
 	input	rst,
 	input	clr,
 	input [2:0] ctrl3,
