@@ -94,7 +94,7 @@ always @(posedge clk)
                 case( din[6:4] )
                     3'b000: tone0[3:0] <= din[3:0];
                     3'b010: tone1[3:0] <= din[3:0];
-                    3'b100: tone1[3:0] <= din[3:0];
+                    3'b100: tone2[3:0] <= din[3:0];
                     3'b110: ctrl3      <= din[2:0];
                     3'b001: vol0       <= din[3:0];
                     3'b011: vol1       <= din[3:0];
@@ -105,12 +105,12 @@ always @(posedge clk)
                 case( regn )
                     3'b000: tone0[9:4] <= din[5:0];
                     3'b010: tone1[9:4] <= din[5:0];
-                    3'b100: tone1[9:4] <= din[5:0];
+                    3'b100: tone2[9:4] <= din[5:0];
+                    3'b110: ctrl3      <= din[2:0];
                     3'b001: vol0       <= din[3:0];
                     3'b011: vol1       <= din[3:0];
                     3'b101: vol2       <= din[3:0];
                     3'b111: vol3       <= din[3:0];
-                    default:;
                 endcase
             end
         end
