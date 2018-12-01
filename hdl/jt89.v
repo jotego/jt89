@@ -36,13 +36,11 @@ module jt89(
     input   rst,
     input   wr_n,
     input   [7:0] din,
-    output  signed [ 9:0] ch0,
-    output  signed [ 9:0] ch1,
-    output  signed [ 9:0] ch2,
-    output  signed [ 9:0] noise,
     output  signed [11:0] sound,
     output  reg           ready
 );
+
+wire signed [ 9:0] ch0, ch1, ch2, noise;
 
 assign ready = 1'b1;
 
