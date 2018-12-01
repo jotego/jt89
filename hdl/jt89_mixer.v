@@ -41,7 +41,7 @@ always @(*)
             {{2{ch2[9]  }},  ch2} +
             {{2{noise[9]}},noise};
 
-assign sound = a[12:1];
+assign sound = a[11:0];
 
 always @(posedge clk) 
     if(rst) begin

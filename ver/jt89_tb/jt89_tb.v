@@ -26,7 +26,6 @@ initial begin
 	#5 rst = 1;
 	#35 rst = 0;
 	`include "inputs.vh"
-	#900000 $finish;
 end
 
 wire signed [11:0] sound;

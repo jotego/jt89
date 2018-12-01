@@ -27,5 +27,6 @@ int main() {
 		cout << "for( cnt=0; cnt<" << tone << ";cnt=cnt+1)\n";
 		cout << "\t#1000\n\n";
 	}}}	
+	cout << "$finish;\n";
 	return 0;
 }

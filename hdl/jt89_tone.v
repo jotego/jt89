@@ -29,11 +29,10 @@ module jt89_tone(
     input         [9:0] tone,
     input         [3:0] vol,
     output signed [9:0] snd,
-    output              out
+    output reg          out
 );
 
-reg [10:0] cnt;
-assign out=cnt[10];
+reg [9:0] cnt;
 reg last_out;
 
 jt89_vol u_vol(
@@ -45,21 +44,21 @@ jt89_vol u_vol(
     .snd    ( snd     )
 );
 
-reg do_load, inc;
+reg [10:0] next;
 
-always @(*) begin
-    do_load = out!=last_out;
-    inc     = tone!=10'd0;
-end
+always @(*)
+    next = cnt - 10'b1;
 
 always @(posedge clk) 
-    if( rst ) cnt <= 11'd0;
-    else if( clk_en ) begin
-        last_out <= out;
-        if( do_load ) begin 
+    if( rst ) begin
+        cnt <= 11'd0;
+        out <= 1'b0;
+    end else if( clk_en ) begin
+        if( cnt[9:0]==10'd0 ) begin 
             cnt[9:0] <= tone;
+            out <= ~out;
         end
-        else cnt <= cnt- { 10'b0, inc };
+        else cnt <= next;
     end
 
 endmodule
