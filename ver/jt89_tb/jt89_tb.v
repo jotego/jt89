@@ -71,5 +71,9 @@ jt89 u_uut(
 	.sound	( sound	)
 );
 
+`ifdef SIMLIMIT
+initial #(1000*`SIMLIMIT) $finish;
+`endif
+
 
 endmodule

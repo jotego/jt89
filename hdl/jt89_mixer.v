@@ -15,51 +15,43 @@
 
     Author: Jose Tejada Gomez. Twitter: @topapate
     Version: 1.0
-    Date: March, 8th 2017
+    Date: December, 1st 2018
     
     This work was originally based in the implementation found on the
-    SMS core of MiST
+    SMS core of MiST. Some of the changes, all according to data sheet:
     
     */
 
-module jt89_tone(
-    input               clk,
-(* direct_enable = 1 *) input   clk_en,
-    input               rst,
-    input         [9:0] tone,
-    input         [3:0] vol,
-    output signed [9:0] snd,
-    output              out
+module jt89_mixer(
+    input                rst,
+    input                clk,
+    input  signed [ 9:0] ch0,
+    input  signed [ 9:0] ch1,
+    input  signed [ 9:0] ch2,
+    input  signed [ 9:0] noise,
+    output signed [11:0] sound
 );
 
-reg [10:0] cnt;
-assign out=cnt[10];
-reg last_out;
+reg signed [12:0] a,b,c;
+reg signed [11:0] fresh;
 
-jt89_vol u_vol(
-    .rst    ( rst     ),
-    .clk    ( clk     ),
-    .clk_en ( clk_en  ),
-    .din    ( out     ),
-    .vol    ( vol     ),
-    .snd    ( snd     )
-);
+always @(*)
+    fresh = {{2{ch0[9]  }},  ch0} +
+            {{2{ch1[9]  }},  ch1} +
+            {{2{ch2[9]  }},  ch2} +
+            {{2{noise[9]}},noise};
 
-reg do_load, inc;
-
-always @(*) begin
-    do_load = out!=last_out;
-    inc     = tone!=10'd0;
-end
+assign sound = a[12:1];
 
 always @(posedge clk) 
-    if( rst ) cnt <= 11'd0;
-    else if( clk_en ) begin
-        last_out <= out;
-        if( do_load ) begin 
-            cnt[9:0] <= tone;
-        end
-        else cnt <= cnt- { 10'b0, inc };
+    if(rst) begin
+        a <= 13'd0;
+        b <= 13'd0;
+        c <= 13'd0;
+    end else begin
+        a <= (a + b)>>>1;
+        b <= (b + c)>>>1;
+        c <= (c + fresh)>>>1;
     end
 
 endmodule
