@@ -64,10 +64,6 @@ jt89 u_uut(
 	.rst	( rst2	),
 	.wr_n	( wr_n	),
 	.din	( din	),
-	.ch0	( ch0	),
-	.ch1	( ch1	),
-	.ch2	( ch2	),
-	.noise	( noise	),
 	.sound	( sound	)
 );
 

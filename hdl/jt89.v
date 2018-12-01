@@ -37,7 +37,7 @@ module jt89(
     input   wr_n,
     input   [7:0] din,
     output  signed [11:0] sound,
-    output  reg           ready
+    output                ready
 );
 
 wire signed [ 9:0] ch0, ch1, ch2, noise;
@@ -76,7 +76,7 @@ always @(posedge clk )
     else if( clk_en )
         clk_div <= clk_div + 1'b1;
 
-reg clr_noise;
+reg clr_noise, last_wr;
 
 always @(posedge clk) 
     if( rst ) begin
@@ -84,8 +84,9 @@ always @(posedge clk)
         { tone0, tone1, tone2 } <= 30'd0;
         ctrl3 <= 3'b100;
     end
-    else if( clk_en ) begin
-        if( !wr_n ) begin
+    else begin
+        last_wr <= wr_n;
+        if( !wr_n && last_wr ) begin
             clr_noise <= din[7:4] == 4'b1110; // clear noise
                 // when there is an access to the control register
             if( din[7] ) begin
