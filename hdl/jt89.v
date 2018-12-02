@@ -77,6 +77,7 @@ always @(posedge clk )
         clk_div <= clk_div + 1'b1;
 
 reg clr_noise, last_wr;
+wire reg_sel = din[7] ? din[6:4] : regn;
 
 always @(posedge clk) 
     if( rst ) begin
@@ -88,31 +89,18 @@ always @(posedge clk)
         last_wr <= wr_n;
         if( !wr_n && last_wr ) begin
             clr_noise <= din[7:4] == 4'b1110; // clear noise
-                // when there is an access to the control register
-            if( din[7] ) begin
-                regn <= din[6:4];
-                case( din[6:4] )
-                    3'b000: tone0[3:0] <= din[3:0];
-                    3'b010: tone1[3:0] <= din[3:0];
-                    3'b100: tone2[3:0] <= din[3:0];
-                    3'b110: ctrl3      <= din[2:0];
-                    3'b001: vol0       <= din[3:0];
-                    3'b011: vol1       <= din[3:0];
-                    3'b101: vol2       <= din[3:0];
-                    3'b111: vol3       <= din[3:0];
-                endcase
-            end else begin
-                case( regn )
-                    3'b000: tone0[9:4] <= din[5:0];
-                    3'b010: tone1[9:4] <= din[5:0];
-                    3'b100: tone2[9:4] <= din[5:0];
-                    3'b110: ctrl3      <= din[2:0];
-                    3'b001: vol0       <= din[3:0];
-                    3'b011: vol1       <= din[3:0];
-                    3'b101: vol2       <= din[3:0];
-                    3'b111: vol3       <= din[3:0];
-                endcase
-            end
+            // when there is an access to the control register
+            if( din[7] ) regn <= din[6:4];
+            case( reg_sel )
+                3'b00_0: if( din[7] ) tone0[3:0]<=din[3:0]; else tone0[9:4]<=din[5:0];
+                3'b01_0: if( din[7] ) tone1[3:0]<=din[3:0]; else tone1[9:4]<=din[5:0];
+                3'b10_0: if( din[7] ) tone2[3:0]<=din[3:0]; else tone2[9:4]<=din[5:0];
+                3'b11_0: ctrl3 <= din[2:0];
+                3'b00_1: vol0  <= din[3:0];
+                3'b01_1: vol1  <= din[3:0];
+                3'b10_1: vol2  <= din[3:0];
+                3'b11_1: vol3  <= din[3:0];
+            endcase
         end
         else clr_noise <= 1'b0;
     end
