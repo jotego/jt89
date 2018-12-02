@@ -77,7 +77,7 @@ always @(posedge clk )
         clk_div <= clk_div + 1'b1;
 
 reg clr_noise, last_wr;
-wire reg_sel = din[7] ? din[6:4] : regn;
+wire [2:0] reg_sel = din[7] ? din[6:4] : regn;
 
 always @(posedge clk) 
     if( rst ) begin

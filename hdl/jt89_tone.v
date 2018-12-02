@@ -44,14 +44,9 @@ jt89_vol u_vol(
     .snd    ( snd     )
 );
 
-reg [10:0] next;
-
-always @(*)
-    next = cnt - 10'b1;
-
 always @(posedge clk) 
     if( rst ) begin
-        cnt <= 11'd0;
+        cnt <= 10'd0;
         out <= 1'b0;
     end else if( clk_en ) begin
         if( tone==10'd0 || tone==10'd1 )    // special case. This is used for sample playing.
@@ -61,7 +56,7 @@ always @(posedge clk)
                 cnt[9:0] <= tone;
                 out <= ~out;
             end
-            else cnt <= next;
+            else cnt <= cnt-10'b1;
         end
     end
 

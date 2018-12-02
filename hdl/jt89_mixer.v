@@ -45,9 +45,9 @@ assign sound = a;
 
 always @(posedge clk) 
     if(rst) begin
-        a <= 12'd0;
-        b <= 12'd0;
-        c <= 12'd0;
+        a <= 11'd0;
+        b <= 11'd0;
+        c <= 11'd0;
     end else begin
         a <= (a + b)>>1;
         b <= (b + c)>>1;
