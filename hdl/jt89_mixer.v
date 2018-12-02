@@ -22,7 +22,7 @@
 module jt89_mixer(
     input            rst,
     input            clk,
-    input            clk_en
+    input            clk_en,
     input     [ 8:0] ch0,
     input     [ 8:0] ch1,
     input     [ 8:0] ch2,
