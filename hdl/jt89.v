@@ -90,7 +90,7 @@ always @(posedge clk)
         if( !wr_n && last_wr ) begin
             clr_noise <= din[7:4] == 4'b1110; // clear noise
             // when there is an access to the control register
-            if( din[7] ) regn <= din[6:4];
+            regn <= reg_sel;
             case( reg_sel )
                 3'b00_0: if( din[7] ) tone0[3:0]<=din[3:0]; else tone0[9:4]<=din[5:0];
                 3'b01_0: if( din[7] ) tone1[3:0]<=din[3:0]; else tone1[9:4]<=din[5:0];
