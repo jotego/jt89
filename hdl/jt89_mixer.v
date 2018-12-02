@@ -16,15 +16,13 @@
     Author: Jose Tejada Gomez. Twitter: @topapate
     Version: 1.0
     Date: December, 1st 2018
-    
-    This work was originally based in the implementation found on the
-    SMS core of MiST. Some of the changes, all according to data sheet:
-    
+   
     */
 
 module jt89_mixer(
     input            rst,
     input            clk,
+    input            clk_en
     input     [ 8:0] ch0,
     input     [ 8:0] ch1,
     input     [ 8:0] ch2,
@@ -43,12 +41,14 @@ always @(*)
 
 assign sound = a;
 
+// Low pass filter to avoid sharp edges
+// settles in 16 clock cycles
 always @(posedge clk) 
     if(rst) begin
         a <= 11'd0;
         b <= 11'd0;
         c <= 11'd0;
-    end else begin
+    end else if(clk_en) begin
         a <= (a + b)>>1;
         b <= (b + c)>>1;
         c <= (c + fresh)>>1;

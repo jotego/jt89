@@ -33,11 +33,11 @@
 module jt89(
     input   clk,
 (* direct_enable = 1 *) input   clk_en,
-    input   rst,
-    input   wr_n,
+    input          rst,
+    input          wr_n,
     input    [7:0] din,
     output  [10:0] sound,
-    output                ready
+    output         ready
 );
 
 wire signed [ 8:0] ch0, ch1, ch2, noise;
@@ -46,6 +46,7 @@ assign ready = 1'b1;
 
 jt89_mixer mix(
     .clk    ( clk   ),
+    .clk_en ( clk_en), // uses main clock enable
     .rst    ( rst   ),
     .ch0    ( ch0   ),
     .ch1    ( ch1   ),
@@ -61,7 +62,7 @@ reg [2:0] ctrl3;
 reg [2:0] regn;
 
 reg [3:0] clk_div;
-reg cen_16;
+(* direct_enable = 1 *) reg cen_16;
 
 always @(negedge clk )
     if( rst ) begin

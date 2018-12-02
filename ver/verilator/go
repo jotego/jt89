@@ -5,7 +5,6 @@ DUMPSIGNALS=-trace
 TEST_FILE=
 EXTRA=
 GYM_ARG=
-WAV_FILE=test.wav
 
 while [ $# -gt 0 ]; do
 	if [ "$1" = "-slow" ]; then
@@ -35,12 +34,6 @@ while [ $# -gt 0 ]; do
 		shift
 		continue
 	fi
-	if [ "$1" = "-o" ]; then
-		shift
-		WAV_FILE="$1"
-		shift
-		continue
-	fi	
 	echo Unrecognized option
     exit 1
 done
@@ -70,8 +63,8 @@ fi
 
 date
 echo Simulation start...
-echo obj_dir/V${TOP} $DUMPSIGNALS $EXTRA $GYM_ARG "$UNZIP_GYM" -o "$WAV_FILE"
-if ! obj_dir/V${TOP} $DUMPSIGNALS $EXTRA $GYM_ARG "$UNZIP_GYM" -o "$WAV_FILE" ; then
+echo obj_dir/V${TOP} $DUMPSIGNALS $EXTRA $GYM_ARG "$UNZIP_GYM"
+if ! obj_dir/V${TOP} $DUMPSIGNALS $EXTRA $GYM_ARG "$UNZIP_GYM" ; then
 	exit $?
 fi
 

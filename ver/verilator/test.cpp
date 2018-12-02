@@ -6,7 +6,7 @@
 #include <list>
 #include "Vjt89.h"
 #include "verilated_vcd_c.h"
-#include "feature.hpp"
+// #include "feature.hpp"
 
   // #include "verilated.h"
 
@@ -18,6 +18,8 @@ class SimTime {
     int verbose_ticks;
     bool toggle;
     int PERIOD, SEMIPERIOD, CLKSTEP;
+    Vjt89* top;
+    int clk;
 public:
     void set_period( int _period ) {
         PERIOD =_period;
@@ -28,7 +30,8 @@ public:
     }
     int period() { return PERIOD; }
     SimTime() { 
-        Vjt89* top = new Vjt89;        
+        top = new Vjt89;  
+        clk=0;      
         main_time=0; fast_forward=0; time_limit=0; toggle=false;
         verbose_ticks = 48000*24/2;
         set_period(132*6);
@@ -92,16 +95,36 @@ public:
 class RipParser {
     ifstream f;
 public:
-    typedef enum { cmd_write, cmd_wait, cmd_finish, cmd_error } t_action;
+    int val;
+    vluint64_t wait;
+    enum t_action { cmd_write, cmd_wait, cmd_finish, cmd_error };
     RipParser( char *filename );
-    t_action parse();
+    int parse();
 };
 
 RipParser::RipParser( char *filename ) {
     f.open( filename );
+    wait = 0L;
 }
 
-t_action RipParser::parse() {
+int RipParser::parse() {
+    char line[512];
+    while( !f.eof() ) {
+        f.getline( line, 512 );
+        char *noblanks=line;
+        while( *noblanks==' ' || *noblanks=='\t' ) noblanks++;
+        char *cmd = noblanks;
+        char *args=cmd;
+        while( *args!=' ' || *args!='\t' || *args!=0 ) args++;
+        if( *args==0 ) continue;
+        args++;
+        while( *args==' ' || *args=='\t' ) args++;
+
+        int a,b, cnt;
+        cnt=sscanf(args,"%d,%x", a,b);
+        if( strcmp(cmd,"vol")==0 )
+
+    }
     return cmd_finish;
 }
 
@@ -117,7 +140,8 @@ int main(int argc, char** argv, char** env) {
     Vjt89 *top = sim_time.Top();
 
     for( int k=1; k<argc; k++ ) {
-        if( string(argv[k])=="-slow" )  { slow=true;  continue; }
+        if( string(argv[k])=="-slow" )  {  slow=true;  continue; }
+        if( string(argv[k])=="-trace" ) { trace=true;  continue; }
         if( string(argv[k])=="-gym" ) { 
             gym_filename = argv[++k];
             gym = new RipParser( gym_filename );
@@ -230,7 +254,7 @@ void CmdWritter::Eval() {
     if( (clk==0) && (last_clk != clk) ) {
         switch( state ) {
             case 0: 
-                top->din = cmd;
+                top->din = val;
                 top->wr_n = 0;
                 state=1;
                 break;

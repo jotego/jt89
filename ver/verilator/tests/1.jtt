@@ -1,1 +1,8 @@
 vol 0,4
+vol 1,8
+vol 2,3
+lsb 0,f
+msb 0,18
+lsb 1,2
+msb 1,8
+wait 10000
