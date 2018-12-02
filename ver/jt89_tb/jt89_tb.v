@@ -28,15 +28,7 @@ initial begin
 	`include "inputs.vh"
 end
 
-wire signed [11:0] sound;
-wire signed [11:0] sound_att = sound >>> 3;
-wire signed [11:0] sound_amp = sound <<< 3;
-
-wire overflow = ^sound[10:8];
-wire overflow2 = overflow ^ sound[11];
-wire overflow3 = ^sound[11:8];
-
-wire signed [11:0] sound_ov = overflow2 ? { sound[11], {11{~sound[11]}}} : sound_amp;
+wire signed [10:0] sound;
 
 reg [1:0] cnt2;
 reg clk_en;

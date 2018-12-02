@@ -30,7 +30,7 @@ module jt89_noise(
     input         [2:0] ctrl3,
     input         [3:0] vol,
     input               ch2,
-    output signed [9:0] snd
+    output        [8:0] snd
 );
 
 reg [15:0] shift;

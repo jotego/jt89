@@ -35,12 +35,12 @@ module jt89(
 (* direct_enable = 1 *) input   clk_en,
     input   rst,
     input   wr_n,
-    input   [7:0] din,
-    output  signed [11:0] sound,
+    input    [7:0] din,
+    output  [10:0] sound,
     output                ready
 );
 
-wire signed [ 9:0] ch0, ch1, ch2, noise;
+wire signed [ 8:0] ch0, ch1, ch2, noise;
 
 assign ready = 1'b1;
 

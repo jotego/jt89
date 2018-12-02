@@ -23,31 +23,31 @@
     */
 
 module jt89_mixer(
-    input                rst,
-    input                clk,
-    input  signed [ 9:0] ch0,
-    input  signed [ 9:0] ch1,
-    input  signed [ 9:0] ch2,
-    input  signed [ 9:0] noise,
-    output signed [11:0] sound
+    input            rst,
+    input            clk,
+    input     [ 8:0] ch0,
+    input     [ 8:0] ch1,
+    input     [ 8:0] ch2,
+    input     [ 8:0] noise,
+    output    [10:0] sound
 );
 
-reg signed [12:0] a,b,c;
-reg signed [11:0] fresh;
+reg signed [11:0] a,b,c;
+reg signed [10:0] fresh;
 
 always @(*)
-    fresh = {{2{ch0[9]  }},  ch0} +
-            {{2{ch1[9]  }},  ch1} +
-            {{2{ch2[9]  }},  ch2} +
-            {{2{noise[9]}},noise};
+    fresh = {2'b0,  ch0} +
+            {2'b0,  ch1} +
+            {2'b0,  ch2} +
+            {2'b0,noise};
 
-assign sound = a[11:0];
+assign sound = a[10:0];
 
 always @(posedge clk) 
     if(rst) begin
-        a <= 13'd0;
-        b <= 13'd0;
-        c <= 13'd0;
+        a <= 12'd0;
+        b <= 12'd0;
+        c <= 12'd0;
     end else begin
         a <= (a + b)>>>1;
         b <= (b + c)>>>1;

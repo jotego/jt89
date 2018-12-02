@@ -12,7 +12,7 @@ port
     din        : in  std_logic_vector(7 downto 0);
     wr_n       : in  std_logic;
     ready      : out std_logic;
-    sound      : out std_logic_vector(11 downto 0) -- signed
+    sound      : out std_logic_vector(10 downto 0) -- signed
 );
 end component;
 

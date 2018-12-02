@@ -28,7 +28,7 @@ module jt89_tone(
     input               rst,
     input         [9:0] tone,
     input         [3:0] vol,
-    output signed [9:0] snd,
+    output        [8:0] snd,
     output reg          out
 );
 
