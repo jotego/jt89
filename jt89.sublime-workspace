@@ -1,0 +1,1756 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"file",
+				"filename"
+			],
+			[
+				"si",
+				"SIMLIMIT"
+			],
+			[
+				"lfo",
+				"lfo_inc"
+			],
+			[
+				"eg_kon",
+				"eg_kon_csm"
+			],
+			[
+				"cur_",
+				"cur_ch"
+			],
+			[
+				"next",
+				"next_in"
+			],
+			[
+				"cur",
+				"cur_csm"
+			],
+			[
+				"load_",
+				"load_latch"
+			],
+			[
+				"load_l",
+				"load_latch"
+			],
+			[
+				"load",
+				"load_edge"
+			],
+			[
+				"over",
+				"overflow_flag"
+			],
+			[
+				"lfo_",
+				"lfo_inc"
+			],
+			[
+				"sum",
+				"sum_up_out"
+			],
+			[
+				"pre_",
+				"pre_left"
+			],
+			[
+				"pcm_",
+				"pcm_data"
+			],
+			[
+				"pcm",
+				"pcm_sum"
+			],
+			[
+				"left",
+				"left_en"
+			],
+			[
+				"ch",
+				"ch6op"
+			],
+			[
+				"wo",
+				"wout-1"
+			],
+			[
+				"expo",
+				"exponent_X"
+			],
+			[
+				"man",
+				"mantissa_X"
+			],
+			[
+				"use_pre",
+				"use_prepre1_VII"
+			],
+			[
+				"use_i",
+				"use_internal_x_VII"
+			],
+			[
+				"use",
+				"use_pre1_VII"
+			],
+			[
+				"sign",
+				"signbit_VIII"
+			],
+			[
+				"prev1",
+				"use_prev1"
+			],
+			[
+				"sta",
+				"stages_pipeline"
+			],
+			[
+				"phase",
+				"phasemod_I"
+			],
+			[
+				"phas",
+				"phasemod_in"
+			],
+			[
+				"pha",
+				"phasemod_out"
+			],
+			[
+				"use_",
+				"use_internal_y"
+			],
+			[
+				"pre",
+				"pre_result"
+			],
+			[
+				"sig",
+				"signbit_in"
+			],
+			[
+				"exponen",
+				"exponent_out"
+			],
+			[
+				"s1_",
+				"s1_enters"
+			],
+			[
+				"end",
+				"endcase\tendcase // ph_addr"
+			],
+			[
+				"exp",
+				"exp_addr"
+			],
+			[
+				"shi",
+				"shifter_3"
+			],
+			[
+				"prev",
+				"prevprev1"
+			],
+			[
+				"addr",
+				"addr2"
+			],
+			[
+				"fm1",
+				"fm1_dout"
+			],
+			[
+				"cs",
+				"ym0_cs"
+			],
+			[
+				"fm0_d",
+				"fm0_dout"
+			],
+			[
+				"cen",
+				"cen_z80"
+			],
+			[
+				"t",
+				"tv80"
+			],
+			[
+				"wai",
+				"snd_wait_n"
+			],
+			[
+				"ssg",
+				"ssg_pres"
+			],
+			[
+				"opn_",
+				"opn_pres"
+			],
+			[
+				"SAM",
+				"SAMPLING_PERIOD"
+			],
+			[
+				"clk",
+				"clkdiv"
+			],
+			[
+				"div",
+				"div_setting"
+			],
+			[
+				"op_re",
+				"op_result_internal"
+			],
+			[
+				"clk_en",
+				"clk_en2"
+			],
+			[
+				"clk_",
+				"clk_en"
+			],
+			[
+				"psg_",
+				"psg_sound"
+			],
+			[
+				"fm_mu",
+				"fm_mux_left"
+			],
+			[
+				"use_p",
+				"use_psg"
+			],
+			[
+				"ram_",
+				"ram_cs"
+			],
+			[
+				"rom",
+				"rom_cs"
+			],
+			[
+				"la",
+				"latch_cs"
+			],
+			[
+				"main",
+				"main_time"
+			],
+			[
+				"snd",
+				"snd_wait_n"
+			],
+			[
+				"rom_",
+				"rom_addr"
+			],
+			[
+				"snd_",
+				"snd_wait"
+			],
+			[
+				"opsum",
+				"opsum_width"
+			],
+			[
+				"step",
+				"step_ram"
+			],
+			[
+				"ste",
+				"step_idx"
+			],
+			[
+				"cnt",
+				"cnt_out"
+			],
+			[
+				"cnt_",
+				"cnt_in"
+			],
+			[
+				"fnum",
+				"fnum_I"
+			],
+			[
+				"phi",
+				"phinc_III"
+			],
+			[
+				"def",
+				"default_ch"
+			],
+			[
+				"txt_",
+				"txt_cmd"
+			],
+			[
+				"str",
+				"strlen"
+			],
+			[
+				"txt",
+				"txt_cmd"
+			],
+			[
+				"glo",
+				"global_commands"
+			],
+			[
+				"cmd_",
+				"cmd_error"
+			],
+			[
+				"global",
+				"global_cmd"
+			],
+			[
+				"cmd",
+				"cmd_write"
+			],
+			[
+				"ch_",
+				"ch_cmd"
+			],
+			[
+				"op",
+				"op_cmd"
+			],
+			[
+				"op_",
+				"op_commands"
+			],
+			[
+				"int",
+				"int_val"
+			],
+			[
+				"parse",
+				"parse_opdata"
+			],
+			[
+				"line",
+				"line_cnt"
+			],
+			[
+				"l",
+				"line_cnt"
+			],
+			[
+				"com",
+				"comma0"
+			],
+			[
+				"to",
+				"toggle"
+			],
+			[
+				"get",
+				"get_time"
+			],
+			[
+				"ver",
+				"verbose_ticks"
+			],
+			[
+				"ma",
+				"main_time"
+			],
+			[
+				"nex",
+				"next_quarter"
+			],
+			[
+				"set",
+				"set_time_limit"
+			],
+			[
+				"sim",
+				"sim_time"
+			],
+			[
+				"fast",
+				"fast_time"
+			],
+			[
+				"fast_",
+				"fast_next"
+			],
+			[
+				"next_",
+				"next_rounded"
+			],
+			[
+				"add",
+				"add_rounded"
+			],
+			[
+				"forward",
+				"forward_time"
+			],
+			[
+				"Sim",
+				"SimTime"
+			],
+			[
+				"sum_",
+				"sum_eg_tl"
+			],
+			[
+				"am_",
+				"am_final"
+			],
+			[
+				"val",
+				"val_or"
+			],
+			[
+				"va",
+				"val_and"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"wrr",
+				"writter"
+			],
+			[
+				"Blo",
+				"Block_def"
+			],
+			[
+				"reg",
+				"regbase"
+			],
+			[
+				"_reg",
+				"_regbase"
+			],
+			[
+				"wri",
+				"writter"
+			],
+			[
+				"che",
+				"check_use"
+			],
+			[
+				"ena",
+				"_enable_value"
+			],
+			[
+				"ad",
+				"adjust_sum"
+			],
+			[
+				"Wa",
+				"WaveWritter"
+			],
+			[
+				"GYM",
+				"GYM_FILE"
+			],
+			[
+				"GYM_",
+				"GYM_ARG"
+			],
+			[
+				"lat",
+				"latch_fnum"
+			],
+			[
+				"skip",
+				"skip_zeros"
+			],
+			[
+				"time",
+				"time_limit"
+			],
+			[
+				"VGM",
+				"VGMParser"
+			],
+			[
+				"up_op",
+				"up_opreg"
+			],
+			[
+				"up_ch",
+				"up_chreg"
+			],
+			[
+				"bus",
+				"busy_cnt"
+			],
+			[
+				"bu",
+				"busy_cnt"
+			],
+			[
+				"pre_p",
+				"pre_up_op"
+			],
+			[
+				"pre_up",
+				"pre_up_ch"
+			],
+			[
+				"pm",
+				"pm_offset_I_12b"
+			],
+			[
+				"pm_",
+				"pm_offset_I"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "-- Modified from SMS version in MiST:\n-- DAC removed\n-- Added clock enable\n-- Jose Tejada, 26 Feb 2017\n\nlibrary IEEE;\nuse IEEE.STD_LOGIC_1164.ALL;\nuse IEEE.NUMERIC_STD.ALL;\n\nentity psg is\n\tport (\n\t\tclk\t: in  STD_LOGIC;\n\t\tclken\t: in  STD_LOGIC := '1';\n\t\treset\t: in  STD_LOGIC;\n\t\tWR_n\t: in  STD_LOGIC;\n\t\tD_in\t: in  STD_LOGIC_VECTOR(7 downto 0);\n\t\toutput: out STD_LOGIC_VECTOR(5 downto 0)\n\t);\nend entity;\n\narchitecture rtl of psg is\n\n\tsignal en         : std_logic;\n\tsignal clk_divide\t: unsigned(3 downto 0) := \"0000\";\n\tsignal regn\t\t\t: std_logic_vector(2 downto 0);\n\tsignal tone0\t\t: std_logic_vector(9 downto 0):=\"0000100000\";\n\tsignal tone1\t\t: std_logic_vector(9 downto 0):=\"0000100000\";\n\tsignal tone2\t\t: std_logic_vector(9 downto 0):=\"0000100000\";\n\tsignal ctrl3\t\t: std_logic_vector(2 downto 0):=\"100\";\n\tsignal volume0\t\t: std_logic_vector(3 downto 0):=\"1111\";\n\tsignal volume1\t\t: std_logic_vector(3 downto 0):=\"1111\";\n\tsignal volume2\t\t: std_logic_vector(3 downto 0):=\"1111\";\n\tsignal volume3\t\t: std_logic_vector(3 downto 0):=\"1111\";\n\tsignal output0\t\t: std_logic_vector(3 downto 0);\n\tsignal output1\t\t: std_logic_vector(3 downto 0);\n\tsignal output2\t\t: std_logic_vector(3 downto 0);\n\tsignal output3\t\t: std_logic_vector(3 downto 0);\n\tsignal old_WR_n   : std_logic;\nbegin\n\n\tt0: work.psg_tone\n\tport map (\n\t\tclk\t\t=> clk,\n\t\tclk_en\t=> en,\n\t\ttone\t\t=> tone0,\n\t\tvolume\t=> volume0,\n\t\toutput\t=> output0);\n\t\t\n\tt1: work.psg_tone\n\tport map (\n\t\tclk\t\t=> clk,\n\t\tclk_en\t=> en,\n\t\ttone\t\t=> tone1,\n\t\tvolume\t=> volume1,\n\t\toutput\t=> output1);\n\t\t\n\tt2: work.psg_tone\n\tport map (\n\t\tclk\t\t=> clk,\n\t\tclk_en\t=> en,\n\t\ttone\t\t=> tone2,\n\t\tvolume\t=> volume2,\n\t\toutput\t=> output2);\n\n\tt3: work.psg_noise\n\tport map (\n\t\tclk\t\t=> clk,\n\t\tclk_en\t=> en,\n\t\tstyle\t\t=> ctrl3,\n\t\ttone\t\t=> tone2,\n\t\tvolume\t=> volume3,\n\t\toutput\t=> output3);\n\t\t\n\tprocess (clk)\n\tbegin\n\t\tif rising_edge(clk) then\n\t\t\ten <= '0';\n\t\t\tif clken='1' then\n\t\t\t\tclk_divide <= clk_divide+1;\n\t\t\t\tif clk_divide = 0 then\n\t\t\t\t\ten <= '1';\n\t\t\t\tend if;\n\t\t\tend if;\n\t\tend if;\n\tend process;\n\n\tprocess (clk)\n\tbegin\n\t\tif rising_edge(clk) then\n\n\t\t\told_WR_n <= WR_n;\n\n\t\t\tif reset = '1' then\n\t\t\t\tvolume0 <= (others => '1');\n\t\t\t\tvolume1 <= (others => '1');\n\t\t\t\tvolume2 <= (others => '1');\n\t\t\t\tvolume3 <= (others => '1');\n\t\t\t\ttone0 <= (others => '0');\n\t\t\t\ttone1 <= (others => '0');\n\t\t\t\ttone2 <= (others => '0');\n\t\t\t\tctrl3 <= (others => '0');\n\n\t\t\telsif old_WR_n = '1' and WR_n='0' then\n\t\t\t\tif D_in(7)='1' then\n\t\t\t\t\tcase D_in(6 downto 4) is\n\t\t\t\t\t\twhen \"000\" => tone0(3 downto 0) <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"010\" => tone1(3 downto 0) <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"100\" => tone2(3 downto 0) <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"110\" => ctrl3 <= D_in(2 downto 0);\n\t\t\t\t\t\twhen \"001\" => volume0 <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"011\" => volume1 <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"101\" => volume2 <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"111\" => volume3 <= D_in(3 downto 0);\n\t\t\t\t\t\twhen others =>\n\t\t\t\t\tend case;\n\t\t\t\t\tregn <= D_in(6 downto 4);\n\t\t\t\telse\n\t\t\t\t\tcase regn is\n\t\t\t\t\t\twhen \"000\" => tone0(9 downto 4) <= D_in(5 downto 0);\n\t\t\t\t\t\twhen \"010\" => tone1(9 downto 4) <= D_in(5 downto 0);\n\t\t\t\t\t\twhen \"100\" => tone2(9 downto 4) <= D_in(5 downto 0);\n\t\t\t\t\t\twhen \"110\" => \n\t\t\t\t\t\twhen \"001\" => volume0 <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"011\" => volume1 <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"101\" => volume2 <= D_in(3 downto 0);\n\t\t\t\t\t\twhen \"111\" => volume3 <= D_in(3 downto 0);\n\t\t\t\t\t\twhen others =>\n\t\t\t\t\tend case;\n\t\t\t\tend if;\n\t\t\tend if;\n\t\tend if;\n\tend process;\n\t\n\toutput <= std_logic_vector(\n\t\t  unsigned(\"00\"&output0)\n\t\t+ unsigned(\"00\"&output1)\n\t\t+ unsigned(\"00\"&output2)\n\t\t+ unsigned(\"00\"&output3)\n\t);\n\nend rtl;\n",
+			"file": "/home/jtejada/github/fpgagen/src/psg/psg.vhd",
+			"file_size": 3595,
+			"file_write_time": 131858261288305821,
+			"settings":
+			{
+				"buffer_size": 3576,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "hdl/jt89.vhd",
+			"settings":
+			{
+				"buffer_size": 462,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/jtejada/github/others/mame/src/devices/sound/sn76496.cpp",
+			"settings":
+			{
+				"buffer_size": 18162,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "hdl/jt89_mixer.v",
+			"settings":
+			{
+				"buffer_size": 1494,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "hdl/jt89_noise.v",
+			"settings":
+			{
+				"buffer_size": 2190,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "hdl/jt89.v",
+			"settings":
+			{
+				"buffer_size": 4106,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "hdl/jt89_tone.v",
+			"settings":
+			{
+				"buffer_size": 1740,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "hdl/jt89_vol.v",
+			"settings":
+			{
+				"buffer_size": 1675,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ver/jt89_tb/gather.f",
+			"settings":
+			{
+				"buffer_size": 117,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ver/verilator/go",
+			"settings":
+			{
+				"buffer_size": 1481,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ver/verilator/tests/1.jtt",
+			"settings":
+			{
+				"buffer_size": 67,
+				"line_ending": "Unix",
+				"name": "vol 0,4"
+			}
+		},
+		{
+			"file": "ver/verilator/test.cpp",
+			"settings":
+			{
+				"buffer_size": 7419,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jtejada/github/jt12/ver/verilator/VGMParser.hpp",
+			"settings":
+			{
+				"buffer_size": 2102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jtejada/github/jt12/ver/verilator/VGMParser.cpp",
+			"settings":
+			{
+				"buffer_size": 12527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ver/jt89_tb/inputs.cc",
+			"settings":
+			{
+				"buffer_size": 820,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ver/jt89_tb/inputs.vh",
+			"settings":
+			{
+				"buffer_size": 8771,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "-- History\n-- Jose Tejada @topapate\n--  v1. copied from SMS core of MiST\n--  v2. Modified to avoid the use of v as a clock\n\n\nlibrary IEEE;\nuse IEEE.STD_LOGIC_1164.ALL;\nuse IEEE.NUMERIC_STD.ALL;\n\nentity psg_noise is\nport (\n\tclk\t   : in  STD_LOGIC;\n\tclk_en   : in  STD_LOGIC;\n\tstyle\t\t: in  STD_LOGIC_VECTOR (2 downto 0);\n\ttone\t\t: in  STD_LOGIC_VECTOR (9 downto 0);\n\tvolume\t: in  STD_LOGIC_VECTOR (3 downto 0);\n\toutput\t: out STD_LOGIC_VECTOR (3 downto 0));\nend psg_noise;\n\narchitecture rtl of psg_noise is\n\n\tsignal counter\t: unsigned(9 downto 0);\n\tsignal v\t\t\t: std_logic;\n\tsignal shift\t: std_logic_vector(15 downto 0) := \"1000000000000000\";\n\nbegin\n\n\tprocess (clk)\n\t\tvariable feedback: std_logic;\n\tbegin\n\t\tif rising_edge(clk) then\n\t\t\tif clk_en = '1' then\n\t\t\t\tif counter=\"000000001\" then\n\t\t\t\t\tv <= not v;\n\t\t\t\t\tcase style(1 downto 0) is\n\t\t\t\t\t\twhen \"00\" => counter <= \"0000010000\";\n\t\t\t\t\t\twhen \"01\" => counter <= \"0000100000\";\n\t\t\t\t\t\twhen \"10\" => counter <= \"0001000000\";\n\t\t\t\t\t\twhen \"11\" => counter <= unsigned(tone);\n\t\t\t\t\t\twhen others =>\n\t\t\t\t\tend case;\n\t\t\t\telse\n\t\t\t\t\tcounter <= counter-1;\n\t\t\t\tend if;\n\t\t\t\t-- output update\n\t\t\t\tif(v = '0') then\n\t\t\t\t\tif (style(2)='1') then\n\t\t\t\t\t\tfeedback := shift(0) xor shift(3);\n\t\t\t\t\telse\n\t\t\t\t\t\tfeedback := shift(0);\n\t\t\t\t\tend if;\n\t\t\t\t\tshift <= feedback & shift(15 downto 1);\t\t\t\n\t\t\t\tend if;\n\t\t\tend if;\n\t\tend if;\n\tend process;\n\n\toutput <= not volume when shift(0) = '1' else \"0000\";\nend rtl;\n\n",
+			"file": "/home/jtejada/github/fpgagen/src/psg/psg_noise.vhd",
+			"file_size": 1416,
+			"file_write_time": 131858261288305821,
+			"settings":
+			{
+				"buffer_size": 1416,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "library IEEE;\nuse IEEE.STD_LOGIC_1164.ALL;\nuse IEEE.NUMERIC_STD.ALL;\n\nentity psg_tone is\n    Port (\n\t\tclk\t: in  STD_LOGIC;\n\t\tclk_en: in  STD_LOGIC;\n\t\ttone\t: in  STD_LOGIC_VECTOR (9 downto 0);\n\t\tvolume: in  STD_LOGIC_VECTOR (3 downto 0);\n\t\toutput: out STD_LOGIC_VECTOR (3 downto 0));\nend psg_tone;\n\narchitecture rtl of psg_tone is\n\n\tsignal counter\t: unsigned(9 downto 0) := (0=>'1', others=>'0');\n\tsignal v\t\t\t: std_logic := '0';\n\nbegin\n\n\tprocess (clk)\n\tbegin\n\t\tif rising_edge(clk) then\n\t\t\tif clk_en = '1' then \n\t\t\t\tif counter=\"0000000000\" then\n\t\t\t\t\tv <= not v;\n\t\t\t\t\tcounter <= unsigned(tone);\n\t\t\t\telse\n\t\t\t\t\tcounter <= counter-1;\n\t\t\t\tend if;\n\t\t\tend if;\n\t\tend if;\n\tend process;\n\n\toutput <= not volume when v = '1' else \"0000\";\nend rtl;\n",
+			"file": "/home/jtejada/github/fpgagen/src/psg/psg_tone.vhd",
+			"file_size": 736,
+			"file_write_time": 131858261288305821,
+			"settings":
+			{
+				"buffer_size": 733,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "PSG files taken from Sega Master System core of MiST\n",
+			"file": "/home/jtejada/github/fpgagen/src/psg/README",
+			"file_size": 53,
+			"file_write_time": 131858261288305821,
+			"settings":
+			{
+				"buffer_size": 53,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/jtejada/github/jt12/hdl/dac/jt12_fir_ram.v",
+		"/home/jtejada/github/jt12/hdl/dac/jt12_fir4.v",
+		"/home/jtejada/github/jt89/ver/jt89_tb/go",
+		"/home/jtejada/github/jt89/ver/jt89_tb/jt89_tb.v",
+		"/home/jtejada/github/jt89/hdl/jt89.vhd",
+		"/home/jtejada/github/jt89/hdl/jt89.qip",
+		"/home/jtejada/github/jt12/ver/verilator/go",
+		"/home/jtejada/github/jt12/ver/jt12_op_tb/go",
+		"/home/jtejada/github/jt12/hdl/jt38_timerb.v",
+		"/home/jtejada/github/jt12/hdl/jt38_keyon.v",
+		"/home/jtejada/github/jt12/hdl/jt38_timera.v",
+		"/home/jtejada/github/jt12/hdl/jt38_op.v",
+		"/home/jtejada/github/jt12/hdl/jt38_lfo.v",
+		"/home/jtejada/github/jt12/hdl/deprecated/jt12_lfo.v",
+		"/home/jtejada/github/jt12/hdl/jt12_sh_rst.v",
+		"/home/jtejada/github/fpgagen/Board/mist/scandoubler.v",
+		"/home/jtejada/github/jt12/ver/jt12_eg_comb_tb/ym3438.c",
+		"/home/jtejada/github/jt12/ver/jt12_eg_comb_tb/ym3438.h",
+		"/home/jtejada/github/jt12/ver/jt12_eg_comb_tb/test.cpp",
+		"/home/jtejada/github/jt12/ver/jt12_eg_comb_tb/go",
+		"/home/jtejada/github/jt12/ver/jt12_eg_comb_tb/test.v",
+		"/home/jtejada/github/jt12/hdl/jt12_eg_comb.v",
+		"/home/jtejada/github/others/Nuked-OPN2/ym3438.svg",
+		"/home/jtejada/github/jt12/hdl/jt12_csr.v",
+		"/home/jtejada/github/jt12/hdl/jt12_kon.v",
+		"/home/jtejada/github/jt12/hdl/jt12_logsin.v",
+		"/home/jtejada/github/jt12/hdl/jt12_lfo.v",
+		"/home/jtejada/github/jt12/hdl/jt12_mmr.v",
+		"/home/jtejada/github/jt12/ver/verilator/tests/ar_write.jtt",
+		"/home/jtejada/github/jt12/hdl/jt12_acc.v",
+		"/home/jtejada/github/jt12/hdl/jt12_op.v",
+		"/home/jtejada/github/jt12/hdl/jt12_exprom.v",
+		"/home/jtejada/github/others/Nuked-OPN2/ym3438.h",
+		"/home/jtejada/github/others/Nuked-OPN2/ym3438.c",
+		"/home/jtejada/github/jt12/hdl/jt12.v",
+		"/home/jtejada/github/jt12/hdl/jt12_single_acc.v",
+		"/home/jtejada/github/jt12/hdl/jt03_acc.v",
+		"/home/jtejada/github/jt12/ver/verilator/VGMParser.cpp",
+		"/home/jtejada/github/jt12/ver/verilator/jt12_test.cpp",
+		"/home/jtejada/github/jt12/ver/verilator/test.v",
+		"/home/jtejada/github/jt12/hdl/jt12_reg.v",
+		"/home/jtejada/github/jt12/ver/verilator/gather.f",
+		"/home/jtejada/github/jt12/hdl/jt12.vhd",
+		"/home/jtejada/github/jt12/hdl/jt12_eg.v",
+		"/home/jtejada/github/jt12/hdl/jt12_pg.v",
+		"/home/jtejada/github/jt12/quartus/jt12_test/output_files/jt12_imp.fit.rpt",
+		"/home/jtejada/github/jt12/doc/quartus_usage.txt",
+		"/home/jtejada/github/jt12/hdl/jt12_op_comb.v",
+		"/home/jtejada/github/jt12/hdl/jt12_mod.v",
+		"/home/jtejada/github/jt12/ver/verilator/tests/con.jtt",
+		"/home/jtejada/github/jt12/ver/jt12_op_comb_tb/test.v",
+		"/home/jtejada/github/jt12/ver/jt12_op_comb_tb/go.sh",
+		"/home/jtejada/github/jt12/hdl/jt03.qip",
+		"/home/jtejada/github/jt12/hdl/jt12.qip",
+		"/home/jtejada/github/fpgagen/Board/mist/MIST_Toplevel.vhd",
+		"/home/jtejada/github/fpgagen/src/virtual_toplevel.vhd",
+		"/home/jtejada/github/jt12/hdl/jt12_phrom.v",
+		"/home/jtejada/github/jt12/ver/phase_rom/exp.v",
+		"/home/jtejada/github/jt12/ver/phase_rom/test.v",
+		"/home/jtejada/github/jt_gng/mist/ver/game/go.sh",
+		"/home/jtejada/github/jt_gng/mist/ver/game/game_test.v",
+		"/home/jtejada/github/jt12/hdl/jt03.v",
+		"/home/jtejada/github/jt_gng/mist/hdl/jtgng_sound.v",
+		"/home/jtejada/github/jt_gng/mist/hdl/jtgng_main.v",
+		"/home/jtejada/github/jt_gng/mist/hdl/jtgng.v",
+		"/home/jtejada/github/jt_gng/mist/hdl/jtgng_mist.v",
+		"/home/jtejada/github/jt_gng/mist/hdl/jtgng_game.v",
+		"/home/jtejada/github/jt_gng/mist/ver/common/mt48lc16m16a2.v",
+		"/home/jtejada/github/jt_gng/mist/hdl/jtgng_rom2.v",
+		"/home/jtejada/github/jt_gng/rom/go.sh",
+		"/home/jtejada/github/jt_gng/mist/ver/game/gather.f",
+		"/home/jtejada/github/jt12/jt49/hdl/jt49.f",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/go.sh",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/gather.f",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/gather_dummy.f",
+		"/home/jtejada/github/jt_gng/modules/ZX-Spectrum_MISTer/t80/T80.vhd",
+		"/home/jtejada/github/jt_gng/modules/ZX-Spectrum_MISTer/t80/T80pa.vhd",
+		"/home/jtejada/github/jt_gng/rom/go-mist.sh",
+		"/home/jtejada/github/jt12/doc/other/vgmspec170.txt",
+		"/home/jtejada/github/jt12/ver/verilator/VGMParser.hpp",
+		"/home/jtejada/github/jt12/hdl/jt12_eg_ctrl.v",
+		"/home/jtejada/github/jt12/hdl/jt12_div.v",
+		"/home/jtejada/github/mame/src/devices/sound/2610intf.cpp",
+		"/home/jtejada/github/mame/src/devices/sound/fm.cpp",
+		"/home/jtejada/github/jt51/hdl/jt51_acc.v",
+		"/home/jtejada/github/jt12/README.md",
+		"/home/jtejada/github/jt12/hdl/jt12_sh.v",
+		"/home/jtejada/github/jt12/jt49/hdl/jt49.v",
+		"/home/jtejada/github/jt12/jt49/hdl/jt49.qip",
+		"/home/jtejada/github/jt12/hdl/jt12.f",
+		"/home/jtejada/github/jt12/hdl/jt12_sumch.v",
+		"/home/jtejada/github/jt12/ver/verilator/tests/3ch.jtt",
+		"/home/jtejada/github/jt12/hdl/jt12_opram.v",
+		"/home/jtejada/github/jt12/.gitignore",
+		"/home/jtejada/github/jt12/ver/verilator/tests/turbo_outrun.jtt",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/jt12_dummy.v",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/test.cpp",
+		"/home/jtejada/github/mame/src/mame/drivers/gng.cpp",
+		"/home/jtejada/github/jt_gng/modules/tv80/tv80s.v",
+		"/home/jtejada/github/jt_gng/modules/tv80/tv80_core.v",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/jtgng_chram.v",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/jtgng_sound_tb.v",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/obj_dir/Vjtgng_sound.mk",
+		"/home/jtejada/github/jt12/ver/verilator/test.cpp",
+		"/home/jtejada/github/jt_gng/mist/hdl/jtgng_chram.v",
+		"/home/jtejada/github/jt_gng/mist/ver/jtgng_sound/test.v",
+		"/home/jtejada/github/jt12/hdl/jt12_eg_cnt.v",
+		"/home/jtejada/github/jt12/hdl/jt12_pg_comb.v",
+		"/home/jtejada/github/jt12/hdl/jt12_pg_inc.v",
+		"/home/jtejada/github/jt12/hdl/jt12_pg_dt.v",
+		"/home/jtejada/github/jt12/hdl/jt12_pg_sum.v",
+		"/home/jtejada/github/jt12/doc/other/nemesis/YM2612.cpp",
+		"/home/jtejada/github/jt12/ver/verilator/tests/dyn_range2.jtt",
+		"/home/jtejada/github/jt12/ver/verilator/tests/scooby_doo.jtt",
+		"/home/jtejada/github/jt12/ver/verilator/tests/dyn_range.jtt",
+		"/home/jtejada/github/jt12/hdl/alt/eg_step.v",
+		"/home/jtejada/github/jt12/ver/jt12_pg_comb_tb/go",
+		"/home/jtejada/github/jt12/ver/jt12_pg_comb_tb/gather.f",
+		"/home/jtejada/github/jt12/hdl/jt12_pm.v",
+		"/home/jtejada/github/jt12/ver/verilator/obj_dir/Vjt12.h",
+		"/home/jtejada/github/jt12/ver/verilator/tests/pm_slow.jtt",
+		"/home/jtejada/github/jt12/hdl/alt/eg_cnt.v",
+		"/home/jtejada/github/jt12/hdl/alt/eg_mux.v",
+		"/home/jtejada/github/jt12/doc/slice_usage.txt",
+		"/home/jtejada/github/jt12/hdl/alt/eg_step_ram.v",
+		"/home/jtejada/github/jt12/ver/common/sep24.v",
+		"/home/jtejada/github/jt12/hdl/jt12_mmr_sim.vh",
+		"/home/jtejada/github/jt12/ver/verilator/tl_write.jtt"
+	],
+	"find":
+	{
+		"height": 44.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Vtop",
+			"GYM_FILE",
+			"m_period",
+			"e0",
+			"SN76489",
+			"jt12",
+			"clk",
+			"0",
+			"clk_en_32",
+			"rst_int",
+			"volume0",
+			"OPN2_PhaseCalcIncrement",
+			"OPN2_PhaseGenerate",
+			"OPN2_FMGenerate",
+			"OPN2_FMPrepare",
+			"OPN2_ChGenerate",
+			"OPN2_ChOutput",
+			"lfo_inc",
+			"eg_kon_csm",
+			"eg_kon_latch",
+			"OPN2_KeyOn",
+			"cycles",
+			"mode_kon_channel",
+			"mode_kon",
+			"mode_kon_channel",
+			"chip->channel",
+			"load_last",
+			"load_lock",
+			"timer_a_load_lock",
+			"mode_kon_csm",
+			"stage",
+			"timer_b_subcnt",
+			"load",
+			"timer_b_reset",
+			"timer_b_overflow",
+			"time",
+			"cycles == 1",
+			"cycles == 9",
+			"cycles == 8",
+			"cycles == 7",
+			"cycles == 6",
+			"cycles == 5",
+			"cycles == 4",
+			"cycles == 3",
+			"cycles == 2",
+			"cycles == 1",
+			"cycles == 0",
+			"cycles",
+			"chip->cycles",
+			"timer_a_reg",
+			"lfo_cycles",
+			"lfo_am",
+			"lfo_cnt",
+			"lfo_en",
+			"lfo_cnt",
+			"lfo_inc",
+			"lfo_cycles",
+			"lfo_",
+			"pg_inc",
+			"write_fm_data",
+			"OPN2_EnvelopeSSGEG",
+			"OPN2_EnvelopePrepare",
+			"eg_ssg_pgrst_latch",
+			"Bit16s",
+			"Bit8u",
+			"Bit32u",
+			"OPN2_EnvelopeADSR",
+			"sump_up_in",
+			"eg_shift",
+			"OPN2_KeyOn",
+			"multi",
+			"png",
+			"fm_algorithm",
+			"exprom",
+			"dout",
+			"drop_24",
+			"left",
+			"middle_din",
+			"cur",
+			"cur_",
+			"shift_out",
+			"ar",
+			"shift_out",
+			"dt1_in",
+			"acc_input",
+			"lowres",
+			"jt12_acc",
+			"clk",
+			"sum_en",
+			"op_result",
+			"left",
+			"jt12",
+			"mantissa_XI",
+			"logsin",
+			"phaselo_IX",
+			"logsin",
+			"prev",
+			"result",
+			"s1_enters",
+			",",
+			")",
+			",",
+			"(",
+			"_enters",
+			",",
+			"\n    ",
+			"use_internal_x,\n",
+			",",
+			"s1_enters",
+			",",
+			"use_prevprev1",
+			"eg_IX",
+			"pg_phase_VIII",
+			"(",
+			"phase_VII",
+			"pg_phase_VII",
+			"eg_VIII",
+			"IX",
+			"phase_VII",
+			"pg_phase_VII",
+			"eg_V",
+			"eg_",
+			"fb_II",
+			"fb_I",
+			"fb_II",
+			"result",
+			"fb_II",
+			"zero"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Vjt89",
+			"TEST_FILE",
+			"jt89",
+			"cen_16",
+			"rst",
+			"load_lock",
+			"load_last",
+			"stg",
+			"int16_t",
+			"uint8_t",
+			"uint32_t",
+			"sum_up_in",
+			"csr_out",
+			"mid_din",
+			"next_",
+			"ks_ar",
+			"pre",
+			"result_XII",
+			"",
+			"pg_phase_VIII",
+			"eg_IX",
+			"phase_VIII",
+			"pg_phase_VIII",
+			"fb_I",
+			"eg_VIII",
+			"result_IX",
+			"phase_VII",
+			"phasemod_out",
+			"2",
+			"1",
+			"2",
+			"prev_s1",
+			"prev_s2",
+			"prev_s1",
+			"phase_VI",
+			"num_ch",
+			"logsin",
+			"8'd\\1: mantissa",
+			"8'd\\1: sinelut",
+			"mantissa[8'd\\1]",
+			"oplog",
+			"atten_internal",
+			"eg_atten",
+			"signbit",
+			"",
+			"sinelut",
+			"exp_X",
+			"fm1_cs",
+			"fm0_cs",
+			"use_ssg",
+			"opn_cnt",
+			"_lut",
+			"ssg",
+			"alg_I",
+			"ssg",
+			" 2,",
+			" 1,",
+			"Vtop",
+			"dout",
+			"din",
+			"",
+			"snd_wait_n",
+			"sl",
+			"lr ",
+			"up_dr_op",
+			"up_amen_dr",
+			"up_sl_rr",
+			"up_sl",
+			"up_sr",
+			"pms c",
+			"mul 0,0,",
+			"#",
+			"toggle",
+			"lfo_mod",
+			"char",
+			"SAMPLING_PERIOD",
+			"uint64_t",
+			"latch_fnum",
+			"gym->",
+			"right",
+			"pms_I",
+			"pm_base = 5'd",
+			"pm_base = 4'd",
+			"lfo_mod",
+			"pm_unsigned"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 10,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/jtejada/github/fpgagen/src/psg/psg.vhd",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2658,
+								2658
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/VHDL Mode/Syntax/VHDL.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2507.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "hdl/jt89.vhd",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 462,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								417,
+								417
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/VHDL Mode/Syntax/VHDL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/jtejada/github/others/mame/src/devices/sound/sn76496.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18162,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										12002,
+										12002
+									]
+								],
+								"scope": "bookmarks"
+							}
+						},
+						"selection":
+						[
+							[
+								15211,
+								15211
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 8950.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "hdl/jt89_mixer.v",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1390,
+								1390
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SystemVerilog/SystemVerilog.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 437.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "hdl/jt89_noise.v",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2190,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1119,
+								1119
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SystemVerilog/SystemVerilog.sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 414.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "hdl/jt89.v",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4106,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1579,
+								1579
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SystemVerilog/SystemVerilog.sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 897.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "hdl/jt89_tone.v",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1298,
+								1298
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SystemVerilog/SystemVerilog.sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 736.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "hdl/jt89_vol.v",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1675,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1631,
+								1631
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SystemVerilog/SystemVerilog.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 321.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "ver/jt89_tb/gather.f",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								113,
+								113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "ver/verilator/go",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "ver/verilator/tests/1.jtt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 67,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"auto_name": "vol 0,4",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "ver/verilator/test.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2666,
+								2666
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2163.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/home/jtejada/github/jt12/ver/verilator/VGMParser.hpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/home/jtejada/github/jt12/ver/verilator/VGMParser.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2820,
+								2820
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2116.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "ver/jt89_tb/inputs.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								386,
+								386
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "ver/jt89_tb/inputs.vh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SystemVerilog/SystemVerilog.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 690.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/home/jtejada/github/fpgagen/src/psg/psg_noise.vhd",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1416,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/VHDL Mode/Syntax/VHDL.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "/home/jtejada/github/fpgagen/src/psg/psg_tone.vhd",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/VHDL Mode/Syntax/VHDL.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "/home/jtejada/github/fpgagen/src/psg/README",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 53,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "jt89.sublime-project",
+	"replace":
+	{
+		"height": 80.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
