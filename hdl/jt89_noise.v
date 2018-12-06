@@ -29,12 +29,12 @@ module jt89_noise(
     input               clr,
     input         [2:0] ctrl3,
     input         [3:0] vol,
-    input               ch2,
+    input         [9:0] tone2,
     output        [8:0] snd
 );
 
 reg [15:0] shift;
-reg [ 6:0] cnt;
+reg [ 9:0] cnt;
 reg        update;
 
 jt89_vol u_vol(
@@ -46,29 +46,25 @@ jt89_vol u_vol(
     .snd    ( snd       )
 );
 
-reg last_ch2, overflow;
+reg overflow;
 
 always @(posedge clk) 
     if( rst ) begin
-        cnt <= 7'd0;
+        cnt <= 10'd0;
     end else if( clk_en ) begin
-        last_ch2 <= ch2;    
-        if( cnt[6:0]==7'd0 ) begin
+        if( cnt==10'd0 ) begin
             case( ctrl3[1:0] )
-                2'd0: cnt[6:0] <= 7'h10; // clk_en already divides by 16
-                2'd1: cnt[6:0] <= 7'h20;
-                2'd2: cnt[6:0] <= 7'h40;
-                2'd3: cnt[6:0] <= 7'h00;
+                2'd0: cnt <= 10'h10; // clk_en already divides by 16
+                2'd1: cnt <= 10'h20;
+                2'd2: cnt <= 10'h40;
+                2'd3: cnt <= tone2;
             endcase
             overflow <= 1'b1;
         end else begin
-            cnt      <= cnt-7'b1;
+            cnt      <= cnt-10'b1;
             overflow <= 1'b0;
         end
     end
-
-always @(*)
-    update = ctrl3[1:0]==2'b11 ? (ch2&& !last_ch2) : overflow;
 
 wire fb = ctrl3[2]?(shift[0]^shift[3]):shift[0];
     
@@ -76,7 +72,7 @@ always @(posedge clk)
     if( rst || clr )
         shift <= { 1'b1, 15'd0 };
     else if( clk_en ) begin
-        if( update) begin
+        if( overflow) begin
             shift <= (|shift == 1'b0) ? {1'b1, 15'd0 } : {fb, shift[15:1]};
         end
     end

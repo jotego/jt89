@@ -136,6 +136,7 @@ public:
     void set_lsb   ( int cnt, int a, int b);
     void set_noise ( int cnt, int a, int b);
     void set_msb ( int cnt, int b);
+    void set_rep ( int cnt, int a);
     void set_wait( int cnt, int a);
 };
 
@@ -178,6 +179,11 @@ void RipParser::set_msb( int cnt, int b) {
     val = b;
 }
 
+void RipParser::set_rep( int cnt, int a) {
+    if( cnt!=1 || a>0xf ) { parse_error=true; return; }
+    val = (regn<<4) | a;
+}
+
 void RipParser::set_wait( int cnt, int a) {
     if( cnt!=1 ) { parse_error=true; return; }
     wait = a << 4;
@@ -196,7 +202,7 @@ int RipParser::parse() {
         while( (*args!=' ' && *args!='\t') && *args!=0 ) args++;
         if( *args==0 ) continue;
         *args=0;
-        cout << "CMD=" << cmd << '\n';
+        // cout << "CMD=" << cmd << '\n';
         args++;
         int a=0xff,b=0xff, cnt;
         bool do_wait=false;
@@ -205,6 +211,7 @@ int RipParser::parse() {
         if( strcmp(cmd,"vol" )==0 ) set_vol( cnt, a,b);
         if( strcmp(cmd,"lsb" )==0 ) set_lsb( cnt, a,b);
         if( strcmp(cmd,"msb" )==0 ) set_msb( cnt, a);
+        if( strcmp(cmd,"rep" )==0 ) set_rep( cnt, a);
         if( strcmp(cmd,"no"  )==0 ) set_noise( cnt, a,b);
         if( strcmp(cmd,"wait")==0 ) { do_wait=true; set_wait(cnt, a); }
         if( parse_error ) {
@@ -298,11 +305,13 @@ finish:
     } else {
         cout << "$finish at " << dec << sim.get_time_ms() << "ms = " << sim.get_time() << " ns\n";
     }
+    // VerilatedCov::write("log/cov.dat");
  }
 
 
 CmdWritter::CmdWritter( SimTime &_sim ) : sim(_sim) {
     last_clk = 0;
+    state    = 2;
     done     = true;
 }
 
