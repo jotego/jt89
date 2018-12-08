@@ -35,22 +35,22 @@ module jt89_vol(
 reg [8:0] max;
 
 always @(*)
-    case ( vol ) // 2dB per LSB
+    case ( vol ) // 2dB per LSB (20*log10)
         4'd0:  max = 9'd511;
-        4'd1:  max = 9'd322;
-        4'd2:  max = 9'd203;
-        4'd3:  max = 9'd128;
-        4'd4:  max = 9'd81;
-        4'd5:  max = 9'd51;
-        4'd6:  max = 9'd32;
-        4'd7:  max = 9'd20;
-        4'd8:  max = 9'd13;
-        4'd9:  max = 9'd8;
-        4'd10: max = 9'd5;
-        4'd11: max = 9'd3;
-        4'd12: max = 9'd2;
-        4'd13: max = 9'd1;
-        4'd14: max = 9'd1;
+        4'd1:  max = 9'd406;
+        4'd2:  max = 9'd322;
+        4'd3:  max = 9'd256;
+        4'd4:  max = 9'd162;
+        4'd5:  max = 9'd128;
+        4'd6:  max = 9'd102;
+        4'd7:  max = 9'd81;
+        4'd8:  max = 9'd64;
+        4'd9:  max = 9'd51;
+        4'd10: max = 9'd41;
+        4'd11: max = 9'd32;
+        4'd12: max = 9'd26;
+        4'd13: max = 9'd20;
+        4'd14: max = 9'd16;
         4'd15: max = 9'd0;
     endcase
 
