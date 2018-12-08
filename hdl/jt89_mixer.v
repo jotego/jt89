@@ -30,7 +30,7 @@ module jt89_mixer(
     output    [10:0] sound
 );
 
-reg signed [10:0] a,b,c;
+reg signed [11:0] a,b,c;
 reg signed [10:0] fresh;
 
 always @(*)
@@ -39,19 +39,19 @@ always @(*)
             {2'b0,  ch2} +
             {2'b0,noise};
 
-assign sound = a;
+assign sound = a[11:1];
 
 // Low pass filter to avoid sharp edges
 // settles in 16 clock cycles
 always @(posedge clk) 
     if(rst) begin
-        a <= 11'd0;
-        b <= 11'd0;
-        c <= 11'd0;
+        a <= 12'd0;
+        b <= 12'd0;
+        c <= 12'd0;
     end else if(clk_en) begin
-        a <= (a + b)>>1;
-        b <= (b + c)>>1;
-        c <= (c + fresh)>>1;
+        a <= (a + {b[11:1],1'b1})>>1;
+        b <= (b + {c[11:1],1'b1})>>1;
+        c <= (c + {fresh,  1'b1})>>1;
     end
 
 endmodule
