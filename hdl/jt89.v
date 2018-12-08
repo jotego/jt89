@@ -89,8 +89,7 @@ always @(posedge clk)
     else begin
         last_wr <= wr_n;
         if( !wr_n && last_wr ) begin
-            //clr_noise <= din[7:4] == 4'b1110; // clear noise
-            clr_noise <= 1'b0;
+            clr_noise <= din[7:4] == 4'b1110; // clear noise
             // when there is an access to the control register
             regn <= reg_sel;
             case( reg_sel )

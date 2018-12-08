@@ -46,23 +46,23 @@ jt89_vol u_vol(
     .snd    ( snd       )
 );
 
-reg overflow;
+reg v;
 
 always @(posedge clk) 
     if( rst ) begin
         cnt <= 10'd0;
+        v   <= 1'b1;
     end else if( clk_en ) begin
-        if( cnt==10'd0 ) begin
+        if( cnt==10'd1 ) begin
             case( ctrl3[1:0] )
                 2'd0: cnt <= 10'h10; // clk_en already divides by 16
                 2'd1: cnt <= 10'h20;
                 2'd2: cnt <= 10'h40;
                 2'd3: cnt <= tone2;
             endcase
-            overflow <= 1'b1;
+            v <= ~v;
         end else begin
-            cnt      <= cnt-10'b1;
-            overflow <= 1'b0;
+            cnt <= cnt-10'b1;
         end
     end
 
@@ -72,7 +72,7 @@ always @(posedge clk)
     if( rst || clr )
         shift <= { 1'b1, 15'd0 };
     else if( clk_en ) begin
-        if( overflow) begin
+        if( !v ) begin
             shift <= (|shift == 1'b0) ? {1'b1, 15'd0 } : {fb, shift[15:1]};
         end
     end
