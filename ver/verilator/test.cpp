@@ -305,7 +305,7 @@ finish:
     } else {
         cout << "$finish at " << dec << sim.get_time_ms() << "ms = " << sim.get_time() << " ns\n";
     }
-    // VerilatedCov::write("log/cov.dat");
+    // "VerilatedCov::write("log/cov.dat");
  }
 
 
