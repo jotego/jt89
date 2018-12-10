@@ -41,7 +41,7 @@ always @(*)
         {2'b0, noise };
 
 // Comb filter
-localparam fbw=bw+11; // filter bit width
+localparam fbw=bw+7; // filter bit width
 reg signed [fbw-1:0] comb1, old_comb1, comb2;
 always @(posedge clk) if(cen_16) begin
     old <= fresh;
@@ -62,7 +62,7 @@ always @(posedge clk)
         integ1 <= {fbw{1'b0}};
         integ2 <= {fbw{1'b0}};
     end else if(clk_en) begin
-        integ1 <= integ1 + comb2;
+        integ1 <= integ1 + interp;
         integ2 <= integ2 + integ1;
     end
 // scale back
