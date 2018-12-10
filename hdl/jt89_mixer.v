@@ -23,6 +23,7 @@ module jt89_mixer(
     input            rst,
     input            clk,
     input            clk_en,
+    input            cen_16,
     input     [ 8:0] ch0,
     input     [ 8:0] ch1,
     input     [ 8:0] ch2,
@@ -30,8 +31,8 @@ module jt89_mixer(
     output    [10:0] sound
 );
 
-reg signed [10:0] a,b,c;
-reg signed [10:0] fresh;
+reg signed [11:0] a,b,c;
+reg signed [10:0] fresh, old;
 
 always @(*)
     fresh = {2'b0,  ch0} +
@@ -39,19 +40,33 @@ always @(*)
             {2'b0,  ch2} +
             {2'b0,noise};
 
-assign sound = a;
+// Comb filter
+reg signed [14:0] comb1, old_comb1, comb2;
+always @(posedge clk) if(cen_16) begin
+    old <= fresh;
+    comb1 <= fresh-old;
+    old_comb1 <= comb1;
+    comb2 <= comb1-old_comb1;
+end
 
-// Low pass filter to avoid sharp edges
-// settles in 16 clock cycles
+// interpolator x16
+reg signed [14:0] interp;
+always @(posedge clk) if(clk_en) begin // clk_en = 16xcen_16
+    interp <= cen_16 ? comb2 : 15'd0;
+
+// integrator
+reg signed [14:0] integ1, integ2;
 always @(posedge clk) 
-    if(rst) begin
-        a <= 11'd0;
-        b <= 11'd0;
-        c <= 11'd0;
+    if( rst ) begin
+        integ1 <= 15'd0;
+        integ2 <= 15'd0;
     end else if(clk_en) begin
-        a <= (a + b)>>1;
-        b <= (b + c)>>1;
-        c <= (c + fresh)>>1;
+        integ1 <= integ1 + comb2;
+        integ2 <= integ2 + integ1;
     end
+// scale back
+assign sound = integ2[14:4];
+
+
 
 endmodule
