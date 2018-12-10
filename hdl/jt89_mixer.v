@@ -19,54 +19,54 @@
    
     */
 
-module jt89_mixer(
+module jt89_mixer #(parameter bw=9)(
     input            rst,
     input            clk,
     input            clk_en,
     input            cen_16,
-    input     [ 8:0] ch0,
-    input     [ 8:0] ch1,
-    input     [ 8:0] ch2,
-    input     [ 8:0] noise,
-    output    [10:0] sound
+    input     [bw-1:0] ch0,
+    input     [bw-1:0] ch1,
+    input     [bw-1:0] ch2,
+    input     [bw-1:0] noise,
+    output    [bw+1:0] sound
 );
 
-reg signed [11:0] a,b,c;
-reg signed [10:0] fresh, old;
+reg signed [bw+1:0] fresh, old;
 
 always @(*)
-    fresh = {2'b0,  ch0} +
-            {2'b0,  ch1} +
-            {2'b0,  ch2} +
-            {2'b0,noise};
+    fresh = 
+        {2'b0, ch0   }+
+        {2'b0, ch1   }+
+        {2'b0, ch2   }+
+        {2'b0, noise };
 
 // Comb filter
-reg signed [14:0] comb1, old_comb1, comb2;
+localparam fbw=bw+11; // filter bit width
+reg signed [fbw-1:0] comb1, old_comb1, comb2;
 always @(posedge clk) if(cen_16) begin
     old <= fresh;
-    comb1 <= fresh-old;
+    comb1 <= {{(fbw-bw-2){1'b0}},fresh}-{{(fbw-bw-2){1'b0}},old};
     old_comb1 <= comb1;
     comb2 <= comb1-old_comb1;
 end
 
 // interpolator x16
-reg signed [14:0] interp;
-always @(posedge clk) if(clk_en) begin // clk_en = 16xcen_16
-    interp <= cen_16 ? comb2 : 15'd0;
+reg signed [fbw-1:0] interp;
+always @(posedge clk) if(clk_en) // clk_en = 16xcen_16
+    interp <= cen_16 ? comb2 : {fbw{1'b0}};
 
 // integrator
-reg signed [14:0] integ1, integ2;
+reg signed [fbw-1:0] integ1, integ2;
 always @(posedge clk) 
     if( rst ) begin
-        integ1 <= 15'd0;
-        integ2 <= 15'd0;
+        integ1 <= {fbw{1'b0}};
+        integ2 <= {fbw{1'b0}};
     end else if(clk_en) begin
         integ1 <= integ1 + comb2;
         integ2 <= integ2 + integ1;
     end
 // scale back
-assign sound = integ2[14:4];
-
-
+assign sound = integ2[fbw-1] ? {bw+2{1'b0}} : // limit at zero
+     integ2[fbw-2:fbw-bw-3]; // drop the sign bit
 
 endmodule

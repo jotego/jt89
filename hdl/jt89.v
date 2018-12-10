@@ -47,6 +47,7 @@ assign ready = 1'b1;
 jt89_mixer mix(
     .clk    ( clk   ),
     .clk_en ( clk_en), // uses main clock enable
+    .cen_16 ( cen_16),
     .rst    ( rst   ),
     .ch0    ( ch0   ),
     .ch1    ( ch1   ),
@@ -96,7 +97,7 @@ always @(posedge clk)
                 3'b00_0: if( din[7] ) tone0[3:0]<=din[3:0]; else tone0[9:4]<=din[5:0];
                 3'b01_0: if( din[7] ) tone1[3:0]<=din[3:0]; else tone1[9:4]<=din[5:0];
                 3'b10_0: if( din[7] ) tone2[3:0]<=din[3:0]; else tone2[9:4]<=din[5:0];
-                3'b11_0: ctrl3 <= din[2:0];
+                3'b11_0: if( din[7] ) ctrl3 <= din[2:0];
                 3'b00_1: vol0  <= din[3:0];
                 3'b01_1: vol1  <= din[3:0];
                 3'b10_1: vol2  <= din[3:0];
@@ -145,7 +146,7 @@ jt89_noise u_noise(
     .clr    ( clr_noise ),
     .vol    ( vol3      ),
     .ctrl3  ( ctrl3     ),
-    .ch2    ( out2      ),
+    .tone2  ( tone2     ),
     .snd    ( noise     )
 );
 

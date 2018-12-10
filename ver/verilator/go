@@ -61,6 +61,8 @@ if ! make -j -C obj_dir -f V${TOP}.mk V${TOP}; then
 	exit $?
 fi
 
+mkdir -p log
+
 date
 echo Simulation start...
 echo obj_dir/V${TOP} $DUMPSIGNALS $EXTRA $GYM_ARG "$UNZIP_GYM"
@@ -75,3 +77,4 @@ if [[ $DUMPSIGNALS == "-trace" && -e test.vcd ]]; then
 		echo Done
 	fi
 fi
+# verilator_coverage --annotate log/cov.log
