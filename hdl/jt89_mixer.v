@@ -28,7 +28,7 @@ module jt89_mixer #(parameter bw=9)(
     input     [bw-1:0] ch1,
     input     [bw-1:0] ch2,
     input     [bw-1:0] noise,
-    output    [bw+1:0] sound
+    output reg [bw+1:0] sound
 );
 
 reg signed [bw+1:0] fresh, old;
@@ -64,9 +64,9 @@ always @(posedge clk)
     end else if(clk_en) begin
         integ1 <= integ1 + interp;
         integ2 <= integ2 + integ1;
+        // scale back
+        sound <= integ2[fbw-1] ? {bw+2{1'b0}} : // limit at zero
+            integ2[fbw-2:fbw-bw-3]; // drop the sign bit
     end
-// scale back
-assign sound = integ2[fbw-1] ? {bw+2{1'b0}} : // limit at zero
-     integ2[fbw-2:fbw-bw-3]; // drop the sign bit
 
 endmodule
