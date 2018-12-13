@@ -223,6 +223,31 @@ int RipParser::parse() {
     return cmd_finish;
 }
 
+class HexWritter {
+    ofstream of;
+    int cnt;
+public:
+    HexWritter(char *name);
+    void write( int val );
+};
+
+HexWritter::HexWritter( char* name ) {
+    char *fname = new char[ strlen(name)+4 ];
+    strcpy( fname, name );
+    strcat( fname, ".hex" );
+    of.open(fname);
+    delete[] fname;
+    cnt=0;
+}
+
+void HexWritter::write( int val ) {
+    if(cnt==15) {
+        of << hex << val << '\n';
+        cnt=0;
+    }
+    else cnt++;
+}
+
 
 int main(int argc, char** argv, char** env) {
     Verilated::commandArgs(argc, argv);
@@ -235,7 +260,7 @@ int main(int argc, char** argv, char** env) {
     for( int k=1; k<argc; k++ ) {
         if( string(argv[k])=="-slow" )  {  slow=true;  continue; }
         if( string(argv[k])=="-trace" ) { trace=true;  continue; }
-        if( string(argv[k])=="-gym" ) { 
+        if( string(argv[k])=="-f" ) { 
             gym_filename = argv[++k];
             if( !gym.open( gym_filename ) ) return 1;
             continue;
@@ -255,6 +280,7 @@ int main(int argc, char** argv, char** env) {
     SimTime sim(trace);
     sim.set_time_limit( time_limit );
     CmdWritter writter( sim );
+    HexWritter hex_wr( gym_filename );
 
     // Reset
     sim.rst = 1;
@@ -276,6 +302,7 @@ int main(int argc, char** argv, char** env) {
     while( forever || !sim.finish() ) {
         writter.Eval();
         if( sim.next_quarter() ) {
+            hex_wr.write( sim.sound );
             //cout << "writte done = " << writter.Done() << '\n';
             if( sim.get_time() < wait || !writter.Done() ) continue;
             switch( gym.parse() ) {

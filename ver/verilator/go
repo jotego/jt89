@@ -20,7 +20,7 @@ while [ $# -gt 0 ]; do
 			echo "Cannot open file " $1 " for GYM parsing"
 			exit 1
 		fi
-		GYM_ARG="-gym"
+		GYM_ARG="-f"
 		TEST_FILE="$1"
 		if [[ "$WAV_FILE" == "" ]]; then
 			WAV_FILE=$(basename "${TEST_FILE}.wav")
