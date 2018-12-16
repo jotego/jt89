@@ -36,7 +36,7 @@ module jt89(
     input          rst,
     input          wr_n,
     input    [7:0] din,
-    output  [10:0] sound,
+    output  signed [10:0] sound,
     output         ready
 );
 
