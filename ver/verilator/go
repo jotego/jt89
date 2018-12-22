@@ -3,6 +3,7 @@
 TOP=jt89
 DUMPSIGNALS=-trace
 TEST_FILE=
+VER_EXTRA=
 EXTRA=
 GYM_ARG=
 
@@ -34,6 +35,13 @@ while [ $# -gt 0 ]; do
 		shift
 		continue
 	fi
+	if [ "$1" = "-sms" ]; then
+		echo "Use SMS variation."
+		shift
+		VER_EXTRA="-Ginterpol16=1 ../../hdl/mixer/jt12_interpol.v ../../hdl/mixer/jt12_comb.v"
+		continue
+	fi
+
 	echo Unrecognized option
     exit 1
 done
@@ -53,7 +61,7 @@ else
 	UNZIP_GYM=$TEST_FILE
 fi
 
-if ! verilator --cc ../../hdl/jt89.v -I../../hdl --top-module $TOP --trace --exe test.cpp; then
+if ! verilator --cc ../../hdl/${TOP}.v $VER_EXTRA -I../../hdl --top-module $TOP --trace --exe test.cpp; then
 	exit $?
 fi
 

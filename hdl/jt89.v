@@ -40,14 +40,19 @@ module jt89(
     output         ready
 );
 
+parameter interpol16=0;
+
 wire signed [ 8:0] ch0, ch1, ch2, noise;
 
 assign ready = 1'b1;
+(* direct_enable = 1 *) reg cen_16;
+(* direct_enable = 1 *) reg cen_4;
 
-jt89_mixer mix(
+jt89_mixer #(.interpol16(interpol16)) mix(
     .clk    ( clk   ),
     .clk_en ( clk_en), // uses main clock enable
     .cen_16 ( cen_16),
+    .cen_4  ( cen_4 ),
     .rst    ( rst   ),
     .ch0    ( ch0   ),
     .ch1    ( ch1   ),
@@ -63,13 +68,14 @@ reg [2:0] ctrl3;
 reg [2:0] regn;
 
 reg [3:0] clk_div;
-(* direct_enable = 1 *) reg cen_16;
 
 always @(negedge clk )
     if( rst ) begin
         cen_16 <= 1'b1;
+        cen_4  <= 1'b1;
     end else begin
         cen_16 <= clk_en & (&clk_div);
+        cen_4  <= clk_en & (&clk_div[1:0]);
     end
 
 always @(posedge clk )
