@@ -2,8 +2,8 @@
 ===================================================================
 
 You can show your appreciation through
-    * Patreon: https://patreon.com/topapate
-    * Paypal: https://paypal.me/topapate
+* [Patreon](https://patreon.com/topapate), by supporting releases
+* [Paypal](https://paypal.me/topapate), with a donation
 
 
 sn76489an compatible Verilog core, with emphasis on FPGA implementation and Megadrive/Master System compatibility.
