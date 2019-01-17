@@ -1,4 +1,11 @@
-# JT89
+# JT89 FPGA Clone of sn76489an hardware by Jose Tejada (@topapate)
+===================================================================
+
+You can show your appreciation through
+    * Patreon: https://patreon.com/topapate
+    * Paypal: https://paypal.me/topapate
+
+
 sn76489an compatible Verilog core, with emphasis on FPGA implementation and Megadrive/Master System compatibility.
 
 This project aims to make a Verilog core that will:
