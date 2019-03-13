@@ -16,10 +16,10 @@
     Author: Jose Tejada Gomez. Twitter: @topapate
     Version: 1.0
     Date: March, 8th 2017
-    
+
     This work was originally based in the implementation found on the
     SMS core of MiST. Some of the changes, all according to data sheet:
-    
+
         -Fixed volume
         -Fixed tone 2 rate option of noise generator
         -Fixed rate of noise generator
@@ -27,7 +27,7 @@
         -Fixed noise generator update bug by which it gets updated
             multiple times if v='0'
         -Added all 0's prevention circuit to noise generator
-    
+
     */
 
 module jt89(
@@ -79,7 +79,7 @@ always @(negedge clk )
     end
 
 always @(posedge clk )
-    if( rst ) 
+    if( rst )
         clk_div <= 4'd0;
     else if( clk_en )
         clk_div <= clk_div + 1'b1;
@@ -87,7 +87,7 @@ always @(posedge clk )
 reg clr_noise, last_wr;
 wire [2:0] reg_sel = din[7] ? din[6:4] : regn;
 
-always @(posedge clk) 
+always @(posedge clk)
     if( rst ) begin
         { vol0, vol1, vol2, vol3 } <= {16{1'b1}};
         { tone0, tone1, tone2 } <= 30'd0;
@@ -125,7 +125,7 @@ jt89_tone u_tone0(
 
 jt89_tone u_tone1(
     .clk    ( clk       ),
-    .rst    ( rst       ),  
+    .rst    ( rst       ),
     .clk_en ( cen_16    ),
     .vol    ( vol1      ),
     .tone   ( tone1     ),

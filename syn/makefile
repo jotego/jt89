@@ -1,11 +1,12 @@
 PROJECT = jt89
-SOURCE_FILES = ../hdl/jt89_mixer.v ../hdl/jt89_noise.v ../hdl/jt89_tone.v ../hdl/jt89.v ../hdl/jt89_vol.v
+SOURCE_FILES = jt89.sdc ../hdl/jt89_mixer.v ../hdl/jt89_noise.v ../hdl/jt89_tone.v ../hdl/jt89.v ../hdl/jt89_vol.v ../hdl/jt89_verilog.qip
 ASSIGNMENT_FILES = jt89.qpf jt89.qsf
 
 all: smart.log $(PROJECT).asm.rpt $(PROJECT).sta.rpt
 
 clean:
 	rm -rf *.rpt *.chg smart.log *.htm *.eqn *.pin *.sof *.pof db incremental_db *jdi *fit.* *summary
+	rm $(PROJECT).qsf
 
 map: smart.log $(PROJECT).map.rpt
 fit: smart.log $(PROJECT).fit.rpt
@@ -40,7 +41,8 @@ smart.log: $(ASSIGNMENT_FILES)
 	quartus_sh --determine_smart_action $(PROJECT) > smart.log
 
 $(ASSIGNMENT_FILES):
-	quartus_sh --prepare $(PROJECT)
+	quartus_sh --prepare $(PROJECT) 
+	quartus_sh --set QIP_FILE=../hdl/jt89_verilog.qip $(PROJECT)
 
 map.chg:
 	$(STAMP) map.chg
