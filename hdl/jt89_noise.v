@@ -55,7 +55,7 @@ always @(posedge clk)
                 2'd0: cnt <= 11'h20; // clk_en already divides by 16
                 2'd1: cnt <= 11'h40;
                 2'd2: cnt <= 11'h80;
-                2'd3: cnt <= (tone2 == 11'd0) ? 11'h02 : {tone2, 1'b0};
+                2'd3: cnt <= (tone2 == 0) ? 11'h02 : {tone2, 1'b0};
             endcase
         end else begin
             cnt <= cnt-11'b1;
@@ -68,7 +68,7 @@ always @(posedge clk)
     if( rst || clr )
         shift <= { 1'b1, 15'd0 };
     else if( clk_en ) begin
-        if( cnt==1'd1 ) begin
+        if( cnt==1 ) begin
             shift <= (|shift == 1'b0) ? {1'b1, 15'd0 } : {fb, shift[15:1]};
         end
     end
