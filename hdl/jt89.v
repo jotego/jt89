@@ -69,7 +69,7 @@ reg [2:0] regn;
 
 reg [3:0] clk_div;
 
-always @(negedge clk )
+always @(posedge clk )
     if( rst ) begin
         cen_16 <= 1'b1;
         cen_4  <= 1'b1;
