@@ -31,12 +31,13 @@
     */
 
 module jt89(
-    input   clk,
-(* direct_enable = 1 *) input   clk_en,
     input          rst,
+    input          clk,
+(* direct_enable = 1 *) input   clk_en,
     input          wr_n,
+    input          ce_n,    // set to 0 if not needed
     input    [7:0] din,
-    output  signed [10:0] sound,
+    output signed [10:0] sound,
     output         ready
 );
 
@@ -44,7 +45,6 @@ parameter interpol16=0;
 
 wire signed [ 8:0] ch0, ch1, ch2, noise;
 
-assign ready = 1'b1;
 (* direct_enable = 1 *) reg cen_16;
 (* direct_enable = 1 *) reg cen_4;
 
@@ -69,7 +69,7 @@ reg [2:0] regn;
 
 reg [3:0] clk_div;
 
-always @(posedge clk )
+always @(posedge clk ) begin
     if( rst ) begin
         cen_16 <= 1'b1;
         cen_4  <= 1'b1;
@@ -77,6 +77,28 @@ always @(posedge clk )
         cen_16 <= clk_en & (&clk_div);
         cen_4  <= clk_en & (&clk_div[1:0]);
     end
+end
+
+// Ready signal control
+reg       last_wr;
+reg [4:0] rdy_cnt;
+wire      wr;
+
+assign wr = ~ce_n & ~wr_n;
+
+always @(posedge clk ) begin
+    if( rst ) begin
+        rdy_cnt <= 0;
+        ready   <= 1;
+    end else begin
+        if( rdy_cnt==0 ) ready <= 1;
+        if( rdy_cnt!=0 ) rdy_cnt <= rdy_cnt-1'd1;
+        if( wr && !last_wr ) begin
+            ready   <= 0;
+            rdy_cnt <= 5'h1f;
+        end
+    end
+end
 
 always @(posedge clk )
     if( rst )
@@ -84,18 +106,18 @@ always @(posedge clk )
     else if( clk_en )
         clk_div <= clk_div + 1'b1;
 
-reg clr_noise, last_wr;
+reg clr_noise;
 wire [2:0] reg_sel = din[7] ? din[6:4] : regn;
 
-always @(posedge clk)
+always @(posedge clk) begin
     if( rst ) begin
         { vol0, vol1, vol2, vol3 } <= {16{1'b1}};
         { tone0, tone1, tone2 } <= 30'd0;
         ctrl3 <= 3'b100;
     end
     else begin
-        last_wr <= wr_n;
-        if( !wr_n && last_wr ) begin
+        last_wr <= wr;
+        if( wr && !last_wr ) begin
             clr_noise <= din[7:4] == 4'b1110; // clear noise
             // when there is an access to the control register
             regn <= reg_sel;
@@ -112,6 +134,7 @@ always @(posedge clk)
         end
         else clr_noise <= 1'b0;
     end
+end
 
 jt89_tone u_tone0(
     .clk    ( clk       ),
