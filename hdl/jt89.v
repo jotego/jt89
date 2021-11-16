@@ -38,7 +38,7 @@ module jt89(
     input          ce_n,    // set to 0 if not needed
     input    [7:0] din,
     output signed [10:0] sound,
-    output         ready
+    output reg     ready
 );
 
 parameter interpol16=0;
