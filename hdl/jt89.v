@@ -35,7 +35,7 @@ module jt89(
     input          clk,
 (* direct_enable = 1 *) input   clk_en,
     input          wr_n,
-    input          ce_n,    // set to 0 if not needed
+    input          cs_n,    // set to 0 if not needed
     input    [7:0] din,
     output signed [10:0] sound,
     output reg     ready
@@ -80,31 +80,34 @@ always @(posedge clk ) begin
 end
 
 // Ready signal control
-reg       last_wr;
+reg       last_wr, last_csn;
 reg [4:0] rdy_cnt;
 wire      wr;
 
-assign wr = ~ce_n & ~wr_n;
+assign wr = ~cs_n & ~wr_n;
 
 always @(posedge clk ) begin
     if( rst ) begin
         rdy_cnt <= 0;
         ready   <= 1;
+        last_csn<= 1;
     end else begin
+        last_csn <= cs_n;
         if( rdy_cnt==0 ) ready <= 1;
-        if( rdy_cnt!=0 ) rdy_cnt <= rdy_cnt-1'd1;
-        if( wr && !last_wr ) begin
+        if( rdy_cnt!=0 && clk_en ) rdy_cnt <= rdy_cnt-1'd1;
+        if( !cs_n && last_csn ) begin
             ready   <= 0;
             rdy_cnt <= 5'h1f;
         end
     end
 end
 
-always @(posedge clk )
+always @(posedge clk ) begin
     if( rst )
         clk_div <= 4'd0;
     else if( clk_en )
         clk_div <= clk_div + 1'b1;
+end
 
 reg clr_noise;
 wire [2:0] reg_sel = din[7] ? din[6:4] : regn;
