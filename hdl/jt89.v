@@ -30,6 +30,8 @@
 
     */
 
+/* verilator tracing_off */
+
 module jt89(
     input          rst,
     input          clk,
