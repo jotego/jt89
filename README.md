@@ -19,3 +19,11 @@ This project aims to make a Verilog core that will:
 * Use one single clock for all registers, making it easy to synthesize and constraint on FPGAs
 * It will fit well with JT12 (https://github.com/jotego/jt12) in order to produce the Megadrive sound system
 * Have separate output channels, so they can be mixed using the interpolator before the sigma-delta DAC
+
+# Silicon layout in Skywater 130
+
+[![build Sky130 GDS](https://github.com/mattvenn/jt89/actions/workflows/install-mpw-6c.yaml/badge.svg)](https://github.com/mattvenn/jt89/actions/workflows/install-mpw-6c.yaml)
+
+* More about the [Skywater open source PDK](https://www.youtube.com/playlist?list=PLUg3wIOWD8yoZCg9XpFSgEgljx6MSdm9L)
+* GDS built with [OpenLane](https://github.com/The-OpenROAD-Project/OpenLane)
+* Learn how to make your own chips on the [Zero to ASIC course](https://zerotoasiccourse.com/)
