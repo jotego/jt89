@@ -5,8 +5,7 @@ jobs:
   install:
     env:
         OPENLANE_ROOT:  /home/runner/openlane
-        OPENLANE_TAG:   2022.02.23_02.50.41
-        OPENLANE_IMAGE_NAME:    efabless/openlane:$OPENLANE_TAG
+        OPENLANE_IMAGE_NAME:    efabless/openlane:2022.02.23_02.50.41
         PDK_ROOT:       /home/runner/pdk
         PDK:            sky130A
 
@@ -28,6 +27,17 @@ jobs:
     - name: make GDS
       run: |
         echo docker run --rm \
+            -v $OPENLANE_ROOT:/openlane \
+            -v $PDK_ROOT:$PDK_ROOT \
+            -v $(pwd):/work \
+            -e PDK_ROOT=$PDK_ROOT \
+            -u $(id -u $USER):$(id -g $USER) \
+            $OPENLANE_IMAGE_NAME \
+            /bin/bash -c "./flow.tcl -overwrite -design /work/ -run_path /work/runs -tag jt89"
+
+    - name: make GDS
+      run: |
+        docker run --rm \
             -v $OPENLANE_ROOT:/openlane \
             -v $PDK_ROOT:$PDK_ROOT \
             -v $(pwd):/work \
