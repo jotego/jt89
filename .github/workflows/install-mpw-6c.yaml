@@ -1,0 +1,46 @@
+name: build Sky130 GDS
+# either manually started, or on a schedule
+on: [ push ]
+jobs:
+  install:
+    env:
+        OPENLANE_ROOT:  /home/runner/openlane
+        PDK_ROOT:       /home/runner/pdk
+        PDK:            sky130A
+
+    # ubuntu
+    runs-on: ubuntu-latest
+    steps:
+
+    # checkout the repo to get the scripts
+    - uses: actions/checkout@v2
+
+    # build the user project and wrapper
+    - name: pdk & openlane
+      run: |
+        cd $HOME
+        git clone -b mpw-6c https://github.com/efabless/caravel_user_project.git
+        cd caravel_user_project/
+        make setup
+
+    - name: make GDS
+      run: |
+        docker run --rm \
+        -v $OPENLANE_ROOT:/openlane \
+        -v $PDK_ROOT:$PDK_ROOT \
+        -v $CURDIR:/work \
+        -e PDK_ROOT=$PDK_ROOT \
+        -u $(shell id -u $USER):$(shell id -g $USER) \
+        $OPENLANE_IMAGE_NAME \
+        /bin/bash -c "./flow.tcl -overwrite -design /work/ -run_path /work/runs -tag jt89"
+
+    # archive the gds
+    - name: Archive files
+      uses: actions/upload-artifact@v2
+      with:
+          # path depends on the tag and the module name
+          name: GDS
+          path: |
+            runs/jt89/results/final/gds/jt89.gds
+            runs/jt89/reports/final_summary_report.csv
+            runs/jt89/reports/synthesis/1-synthesis.stat.rpt.strategy4
