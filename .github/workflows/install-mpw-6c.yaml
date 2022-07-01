@@ -26,17 +26,6 @@ jobs:
 
     - name: make GDS
       run: |
-        echo docker run --rm \
-            -v $OPENLANE_ROOT:/openlane \
-            -v $PDK_ROOT:$PDK_ROOT \
-            -v $(pwd):/work \
-            -e PDK_ROOT=$PDK_ROOT \
-            -u $(id -u $USER):$(id -g $USER) \
-            $OPENLANE_IMAGE_NAME \
-            /bin/bash -c "./flow.tcl -overwrite -design /work/ -run_path /work/runs -tag jt89"
-
-    - name: make GDS
-      run: |
         docker run --rm \
             -v $OPENLANE_ROOT:/openlane \
             -v $PDK_ROOT:$PDK_ROOT \
