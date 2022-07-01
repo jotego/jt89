@@ -6,7 +6,7 @@ jobs:
     env:
         OPENLANE_ROOT:  /home/runner/openlane
         OPENLANE_TAG:   2022.02.23_02.50.41
-        OPENLANE_IMAGE_NAME:    efabless/openlane:$(OPENLANE_TAG)
+        OPENLANE_IMAGE_NAME:    efabless/openlane:$OPENLANE_TAG
         PDK_ROOT:       /home/runner/pdk
         PDK:            sky130A
 
