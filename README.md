@@ -24,6 +24,8 @@ This project aims to make a Verilog core that will:
 
 [![build Sky130 GDS](https://github.com/mattvenn/jt89/actions/workflows/install-mpw-6c.yaml/badge.svg)](https://github.com/mattvenn/jt89/actions/workflows/install-mpw-6c.yaml)
 
+![GDS](doc/jt89.png)
+
 * More about the [Skywater open source PDK](https://www.youtube.com/playlist?list=PLUg3wIOWD8yoZCg9XpFSgEgljx6MSdm9L)
 * GDS built with [OpenLane](https://github.com/The-OpenROAD-Project/OpenLane)
 * Learn how to make your own chips on the [Zero to ASIC course](https://zerotoasiccourse.com/)
