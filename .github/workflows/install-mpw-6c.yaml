@@ -27,7 +27,7 @@ jobs:
 
     - name: make GDS
       run: |
-        docker run --rm \
+        echo docker run --rm \
             -v $OPENLANE_ROOT:/openlane \
             -v $PDK_ROOT:$PDK_ROOT \
             -v $(pwd):/work \
