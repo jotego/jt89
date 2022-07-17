@@ -32,6 +32,8 @@ module jt89_tone(
     output reg          out
 );
 
+parameter DEAF_TONE = 5; // The DAC will not react to tones this fast
+
 reg [9:0] cnt;
 reg last_out;
 
@@ -49,7 +51,7 @@ always @(posedge clk)
         cnt <= 10'd0;
         out <= 1'b0;
     end else if( clk_en ) begin
-        if( tone==10'd0 || tone==10'd1 )    // special case. This is used for sample playing.
+        if( tone <= DEAF_TONE ) // This is used for sample playing
             out <= 1'b1;
         else begin
             if( cnt[9:0]==10'd1 ) begin 
