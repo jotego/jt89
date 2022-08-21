@@ -20,6 +20,8 @@ This project aims to make a Verilog core that will:
 * It will fit well with [JT12](https://github.com/jotego/jt12) in order to produce the Megadrive sound system
 * Have separate output channels, so they can be mixed using the interpolator before the sigma-delta DAC
 
+If you use JTFRAME, this project will integrate naturally with it. If not, you can use the .qip file for Quartus in the syn/quartus folder.
+
 ## Use Cases
 
 This project has been used in:
