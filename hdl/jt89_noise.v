@@ -16,12 +16,12 @@
     Author: Jose Tejada Gomez. Twitter: @topapate
     Version: 1.0
     Date: March, 8th 2017
-    
+
     This work was originally based in the implementation found on the
     SMS core of MiST
-    
+
     */
-    
+
 module jt89_noise(
     input               clk,
 (* direct_enable = 1 *) input   clk_en,
@@ -29,13 +29,16 @@ module jt89_noise(
     input               clr,
     input         [2:0] ctrl3,
     input         [3:0] vol,
-    input         [9:0] tone2,
+    input               tone2,
     output        [8:0] snd
 );
 
 reg [15:0] shift;
 reg [10:0] cnt;
-reg        update;
+reg        update, tone_en, tone2_l;
+wire       up;
+
+assign up = tone_en ? tone2 & ~tone2_l : cnt==1;
 
 jt89_vol u_vol(
     .rst    ( rst       ),
@@ -46,16 +49,20 @@ jt89_vol u_vol(
     .snd    ( snd       )
 );
 
-always @(posedge clk) 
+always @(posedge clk)
     if( rst ) begin
-        cnt <= 'd0;
+        cnt     <= 0;
+        tone_en <= 0;
     end else if( clk_en ) begin
+        tone_en <= ctrl3[1:0]==3;
+        tone2_l <= tone2;
+
         if( cnt==11'd1 ) begin
             case( ctrl3[1:0] )
                 2'd0: cnt <= 11'h20; // clk_en already divides by 16
                 2'd1: cnt <= 11'h40;
                 2'd2: cnt <= 11'h80;
-                2'd3: cnt <= (tone2 == 0) ? 11'h02 : {tone2, 1'b0};
+                default:;
             endcase
         end else begin
             cnt <= cnt-11'b1;
@@ -63,12 +70,12 @@ always @(posedge clk)
     end
 
 wire fb = ctrl3[2]?(shift[0]^shift[3]):shift[0];
-    
+
 always @(posedge clk)
     if( rst || clr )
         shift <= { 1'b1, 15'd0 };
     else if( clk_en ) begin
-        if( cnt==1 ) begin
+        if( up ) begin
             shift <= (|shift == 1'b0) ? {1'b1, 15'd0 } : {fb, shift[15:1]};
         end
     end

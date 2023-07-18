@@ -180,7 +180,7 @@ jt89_noise u_noise(
     .clr    ( clr_noise ),
     .vol    ( vol3      ),
     .ctrl3  ( ctrl3     ),
-    .tone2  ( tone2     ),
+    .tone2  ( out2      ),
     .snd    ( noise     )
 );
 
