@@ -43,14 +43,14 @@ module jt89(
     output reg     ready
 );
 
-parameter interpol16=0;
+parameter INTERPOL16=0,MODE=0;
 
 wire signed [ 8:0] ch0, ch1, ch2, noise;
 
 (* direct_enable = 1 *) reg cen_16;
 (* direct_enable = 1 *) reg cen_4;
 
-jt89_mixer #(.interpol16(interpol16)) mix(
+jt89_mixer #(.INTERPOL16(INTERPOL16),.MODE(MODE)) mix(
     .clk    ( clk   ),
     .clk_en ( clk_en), // uses main clock enable
     .cen_16 ( cen_16),
