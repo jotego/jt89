@@ -1,0 +1,6 @@
+here:
+  - ../hdl/jt89.v
+  - ../hdl/jt89_noise.v
+  - ../hdl/jt89_vol.v
+  - ../hdl/jt89_mixer.v
+  - ../hdl/jt89_tone.v
